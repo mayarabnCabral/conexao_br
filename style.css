@@ -1,0 +1,397 @@
+html, body {
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+}
+
+hr{
+    
+    border: none;
+    height: 1px;
+    background-color: #ccc;
+    margin: 20px 0;
+}
+/*Inicio configuração de estilo index.html*/
+    /*Inicio configuração menu*/
+        section {
+            text-decoration: none;
+        }
+
+        .cabecalho {
+            background: linear-gradient(to right, #408a87, #429c63);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            height: 80px;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-container {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+            z-index: 1001;
+        }
+
+        .nav-links a,
+        .links-nav a {
+            color: white;
+            text-decoration: none;
+            /* Remove o sublinhado padrão */
+            outline: none;
+            /* Remove a borda azul de seleção ao clicar */
+            font-weight: bold;
+            font-size: 18px;
+            position: relative;
+            transition: color 0.3s;
+            -webkit-tap-highlight-color: transparent;
+            /* Remove o brilho azul no toque do celular */
+        }
+
+
+        .nav-links a:hover {
+            color: #FBD012;
+        }
+
+        /* Linha animada do hover */
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: #FBD012;
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .logo-nav {
+            height: 50px;
+            width: auto;
+        }
+
+        .links-nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        .links-nav i {
+            font-size: 24px;
+            color: white;
+            transition: transform 0.3s;
+        }
+
+        .links-nav i:hover {
+            color: #FBD012;
+            transform: scale(1.2);
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1002;
+        }
+
+        .bar {
+            width: 100%;
+            height: 3px;
+            background-color: white;
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Animação do hambúrguer virando X */
+        .menu-toggle.open .bar:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+
+        .menu-toggle.open .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.open .bar:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
+        }
+
+        /* Inicio Responsividade Menu*/
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100vw;
+                background: linear-gradient(to right, #408a87, #429c63);
+                padding: 20px 0;
+                text-align: center;
+                border-top: 1px solid #333;
+                box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+            }
+
+            /* Quando o menu está aberto */
+            .nav-links.show {
+                display: flex;
+            }
+
+            .nav-links a {
+                padding: 15px 0;
+                display: block;
+                z-index: 1002;
+            }
+
+            .nav-links a::after {
+                display: none;
+                /* Remove a linha animada no mobile */
+            }
+
+            .links-nav {
+                display: none;
+                /* Esconde ícones sociais no topo do celular para ganhar espaço */
+            }
+
+            .nav-container {
+                padding: 0 20px;
+            }
+        }
+
+    /* Fim Responsividade Menu*/
+
+
+    /* Inicio configuração carrossel */
+        .carrossel-container {
+            position: relative;
+            max-width: 100%;
+            margin: 5% auto;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            
+        }
+
+        .carrossel-slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 100%;
+            margin-top: 80px;
+        }
+
+        .slide {
+            min-width: 100%;
+            position: relative;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 1060px;
+            object-fit: cover; /* Corta os excessos para preencher tudo SEM DISTORCER a imagem */
+            object-position: center;
+            display: block;
+        }
+
+        .legenda {
+        position: absolute;
+            bottom: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: fit-content;            /* Ajusta a caixa exatamente ao tamanho do texto */
+            max-width: 80%;               /* Impede que o texto encoste nas bordas do slide em textos muito longos */
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;            /* Garante centralização do texto caso ele quebre em 2 ou mais linhas */
+            word-break: break-word;        /* Quebra palavras muito longas para não estourar a tela */
+        }
+
+        /* Inicio botões do carrossel */
+            .btn-carrossel {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                background-color: rgba(0, 0, 0, 0.5);
+                color: white;
+                border: none;
+                font-size: 24px;
+                padding: 12px 16px;
+                cursor: pointer;
+                border-radius: 50%;
+                transition: background-color 0.3s;
+                user-select: none;
+            }
+
+            .btn-carrossel:hover {
+                background-color: rgba(0, 0, 0, 0.8);
+            }
+
+            .btn-anterior {
+                left: 15px;
+            }
+
+            .btn-proximo {
+                right: 15px;
+            }
+            /* Fim botões do carrossel */
+
+        /* Inicio indicadores */
+            .indicadores {
+                position: absolute;
+                bottom: 15px;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            .dot {
+                height: 12px;
+                width: 12px;
+                background-color: rgba(255, 255, 255, 0.5);
+                border-radius: 50%;
+                cursor: pointer;
+                transition: background-color 0.3s, transform 0.3s;
+            }
+
+            .dot.ativo, .dot:hover {
+                background-color: white;
+                transform: scale(1.2);
+            }
+            /* Fim indicadores */
+    /* Fim configuração carrossel */
+
+    /* Inicio configuração texto */
+        .resumo{
+            align-items: center;
+            text-align: center;
+            padding: 3%;
+            font-size: x-large;
+            max-width: 75%;
+            margin: 0 auto;
+        }
+    /* Fim configuração texto */
+
+/*Inicio configurações cards*/
+    .card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Cria colunas automáticas com tamanho mínimo de 280px e máximo flexível (1fr) */
+    gap: 24px; /* Espaçamento entre os cards */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    }
+
+    .card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column; /* Garante que os elementos fiquem empilhados verticalmente */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    .card-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Faz a caixa de conteúdo preencher todo o espaço restante */
+    }
+
+    .card-title {
+    font-size: 1.25rem;
+    color: #1b4d3e;
+    margin-bottom: 10px;
+    }
+
+    .card-text {
+    font-size: 0.95rem;
+    color: #555555;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    flex-grow: 1; /* Garante que os botões fiquem alinhados no rodapé, mesmo com textos de tamanhos diferentes */
+    }
+
+    .btn-card {
+    display: inline-block;
+    text-align: center;
+    background-color: #1b4d3e;
+    color: #ffffff;
+    padding: 10px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+    }
+
+    .btn-card:hover {
+    background-color: #123329;
+    }
+
+    .coluna-direita {
+    display: flex;
+    flex-direction: column; /* Empilha os dois cards verticalmente */
+    gap: 24px;
+    }
+/*Fim configurações cards*/
+
+/*Fim configuração de estilo index.html*/
+
+
+
+/*Inicio configuração de estilo sobre.html*/
+
+/*Fim configuração de estilo sobre.html*/
+
+
+
+/*Inicio configuração de estilo doar.html*/
+
+/*Fim configuração de estilo doar.html*/
+
+
+
+/*Inicio configuração de estilo inscrever.html*/
+
+/*Fim configuração de estilo inscrever.html*/
