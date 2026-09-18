@@ -1,0 +1,644 @@
+/*Inicio config tags nativas*/
+    html, body {
+        overflow-x: hidden;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        font-family: "Roboto", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+        font-variation-settings: "wdth" 100;
+    }
+
+main {
+    padding-top: 80px; /* Alinha exatamente abaixo do menu fixo de 80px */
+}
+
+    input, select{
+        padding: 1%;
+        border-radius: 1rem;
+        width: 83%;
+        border: none;
+    }
+
+    input[type="radio"] {
+        width: auto;             /* Mantém o tamanho original dos botões de rádio */
+    }
+
+    label{
+        font-size: large;
+        font-weight: bold;
+        padding: 2rem;
+    }
+
+    ::placeholder{
+        padding-left: 2rem;
+    }
+
+    select option{
+        padding-left: 100rem;
+    }
+
+    
+
+    hr{
+        
+        border: none;
+        height: 1px;
+        background-color: #ccc;
+        margin: 20px 0;
+    }
+/*Fim config tags nativas*/
+
+/*
+=====================================================
+                    Inicio config Menu 
+=====================================================
+*/
+        section {
+            text-decoration: none;
+        }
+
+        .menu {
+            background: linear-gradient(to right, #408a87, #429c63);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            height: 80px;
+            display: flex; /* Corrigido de "fixed" para "flex" */
+            align-items: center;
+        }
+
+        .nav-container {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+            z-index: 1001;
+        }
+
+        .nav-links a,
+        .links-nav a {
+            color: white;
+            text-decoration: none;
+            /* Remove o sublinhado padrão */
+            outline: none;
+            /* Remove a borda azul de seleção ao clicar */
+            font-weight: bold;
+            font-size: 18px;
+            position: relative;
+            transition: color 0.3s;
+            -webkit-tap-highlight-color: transparent;
+            /* Remove o brilho azul no toque do celular */
+        }
+
+
+        .nav-links a:hover {
+            color: #FBD012;
+        }
+
+        /* Linha animada do hover */
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: #FBD012;
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .logo-nav {
+            height: 50px;
+            width: auto;
+        }
+
+        .links-nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        .links-nav i {
+            font-size: 24px;
+            color: white;
+            transition: transform 0.3s;
+        }
+
+        .links-nav i:hover {
+            color: #FBD012;
+            transform: scale(1.2);
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1002;
+        }
+
+        .bar {
+            width: 100%;
+            height: 3px;
+            background-color: white;
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Animação do hambúrguer virando X */
+        .menu-toggle.open .bar:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+
+        .menu-toggle.open .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.open .bar:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
+        }
+
+        /* Inicio Responsividade Menu*/
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100vw;
+                background: linear-gradient(to right, #408a87, #429c63);
+                padding: 20px 0;
+                text-align: center;
+                border-top: 1px solid #333;
+                box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+            }
+
+            /* Quando o menu está aberto */
+            .nav-links.show {
+                display: flex;
+            }
+
+            .nav-links a {
+                padding: 15px 0;
+                display: block;
+                z-index: 1002;
+            }
+
+            .nav-links a::after {
+                display: none;
+                /* Remove a linha animada no mobile */
+            }
+
+            .links-nav {
+                display: none;
+                /* Esconde ícones sociais no topo do celular para ganhar espaço */
+            }
+
+            .nav-container {
+                padding: 0 20px;
+            }
+        }
+
+    /* Fim Responsividade Menu*/
+/*
+=====================================================
+                    Fim config Menu 
+=====================================================
+*/
+
+/*
+
+/*
+=====================================================
+        Inicio configuração de estilo index.html
+=====================================================
+*/
+
+
+    /*
+=====================================================
+        Inicio configuração de estilo index.html
+=====================================================
+*/
+
+/* Inicio configuração carrossel */
+        .carrossel {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .carrossel-container {
+            position: relative;
+            max-width: 100%;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 0;
+        }
+
+        .carrossel-slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 100%;
+            margin-top: 0; 
+        }
+
+        .slide {
+            min-width: 100%;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden; /* Mantém tudo contido dentro do slide */
+            background-color: #000;
+        }
+
+        
+        .slide a {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            overflow: hidden; /* Impede que o desfoque vaze para o lado */
+        }
+
+        .slide a::before {
+            content: '';
+            position: absolute;
+            top: -15%;
+            left: -15%;
+            width: 130%;
+            height: 130%;
+            background-size: cover;
+            background-position: center;
+            filter: blur(25px) brightness(0.75);/* Desfoca e escurece levemente o fundo */
+            z-index: 1;
+        }
+
+        /* Associa a imagem de fundo de cada slide correspondente no HTML */
+        .slide:has(img[src*="Logo_conexao_br_v2.webp"]) a::before {
+            background-image: url('midia/Logo_conexao_br_v2.webp');
+        }
+
+        .slide:has(img[src*="sala_de_aula.webp"]) a::before {
+            background-image: url('midia/sala_de_aula.webp');
+        }
+
+        .slide:has(img[src*="fachada_conexao_br_1.webp"]) a::before {
+            background-image: url('midia/fachada_conexao_br_1.webp');
+        }
+
+        
+        .slide img {
+            position: relative;
+            z-index: 2; 
+            max-width: 100%;
+            height: 75vh;
+            object-fit: contain; 
+            object-position: center;
+            display: block;
+        }
+
+        .legenda {
+            position: absolute;
+            bottom: 8%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: fit-content;
+            max-width: 80%;
+            background: rgba(0, 0, 0, 0.7);
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            word-break: break-word;
+            z-index: 2;
+        }
+
+        /* Inicio botões do carrossel */
+            .btn-carrossel {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                background-color: rgba(0, 0, 0, 0.6);
+                color: white;
+                border: none;
+                font-size: 28px;
+                padding: 12px 18px;
+                cursor: pointer;
+                border-radius: 50%;
+                transition: background-color 0.3s;
+                user-select: none;
+                z-index: 3;
+            }
+
+            .btn-carrossel:hover {
+                background-color: rgba(0, 0, 0, 0.9);
+            }
+
+            .btn-anterior {
+                left: 20px;
+            }
+
+            .btn-proximo {
+                right: 20px;
+            }
+            /* Fim botões do carrossel */
+
+        /* Inicio indicadores */
+            .indicadores {
+                position: absolute;
+                bottom: 20px;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+                z-index: 3;
+            }
+
+            .ponto {
+                height: 12px;
+                width: 12px;
+                background-color: rgba(124, 109, 109, 0.5);
+                border-radius: 50%;
+                cursor: pointer;
+                transition: background-color 0.3s, transform 0.3s;
+                border: none;
+            }
+
+            .ponto.ativo, .ponto:hover {
+                background-color: rgb(74, 73, 73);
+                transform: scale(1.3);
+            }
+            /* Fim indicadores */
+
+    /* Ajustes de responsividade para telas menores */
+    @media (max-width: 768px) {
+        .slide img {
+            height: 50vh;
+        }
+
+        .legenda {
+            font-size: 14px;
+            padding: 6px 12px;
+            bottom: 12%;
+            max-width: 90%;
+        }
+
+        .btn-carrossel {
+            font-size: 20px;
+            padding: 8px 12px;
+        }
+
+        .btn-anterior {
+            left: 10px;
+        }
+
+        .btn-proximo {
+            right: 10px;
+        }
+    }
+    /* Fim configuração carrossel */
+
+    /* Inicio configuração texto */
+        .resumo{
+            align-items: center;
+            text-align: center;
+            padding: 3%;
+            font-size: clamp(1.1rem, 2vw, 1.5rem); /* Responsividade adaptando o texto à tela respeitando os limites clamp(MÍNIMO, IDEAL, MÁXIMO) */
+            max-width: 85%;
+            margin: 0 auto;
+        }
+    /* Fim configuração texto */
+
+/*Inicio configurações cards*/
+    .card-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Cria colunas automáticas com tamanho mínimo de 300px e máximo flexível (1fr) */
+        gap: 24px; /* Espaçamento entre os cards */
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        color: #ffffff;
+    }
+
+    .fundo-card{
+         background-color: #00000017;
+         padding: 2%;
+    }
+
+    .card {
+        background-color:  #408a87e1;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        display: flex;
+        flex-direction: column; /* Garante que os elementos fiquem empilhados verticalmente */
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    .card-content {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1; /* Faz a caixa de conteúdo preencher todo o espaço restante */
+    }
+
+    .card-title {
+        font-size: 1.25rem;
+        margin-bottom: 10px;
+    }
+
+    .card-text {
+        font-size: 0.95rem;
+        line-height: 1.5;
+        margin-bottom: 20px;
+        flex-grow: 1; /* Garante que os botões fiquem alinhados no rodapé, mesmo com textos de tamanhos diferentes */
+    }
+
+    .btn-card a {
+        width: 100%;
+    }
+
+    .btn-card {
+        display: inline-block;
+        text-align: center;
+        background:#cfda01;
+        color: #000000;
+        padding: 10px 16px;
+        border: none;
+        border-radius: 2rem;
+        text-decoration: none;
+        font-weight: 600;
+        transition: background-color 0.2s ease;
+        cursor: pointer;
+    }
+
+    .btn-card:hover {
+        background-color: #939b19;
+        color: #ffffff;
+    }
+
+    .coluna-direita {
+        display: flex;
+        flex-direction: column; /* Empilha os dois cards verticalmente */
+        gap: 24px;
+    }
+
+    .espacamento-card{
+        margin-bottom: 0; /* Ajustado para alinhar perfeitamente com a distância gap no flexbox */
+    }
+
+    /* Regras de media queries específicas para ajustar o visual em telas menores */
+    @media (max-width: 768px) {
+        .carrossel-slides {
+            margin-top: 60px;
+        }
+
+        .legenda {
+            font-size: 14px;
+            bottom: 12%;
+            padding: 6px 12px;
+            max-width: 90%;
+        }
+
+        .btn-carrossel {
+            font-size: 18px;
+            padding: 8px 12px;
+        }
+
+        .resumo {
+            max-width: 95%;
+            padding: 5% 2%;
+        }
+
+        .card-container {
+            padding: 10px;
+        }
+    }
+
+/*Fim configurações cards*/
+
+/*
+=====================================================
+        Fim configuração de estilo index.html
+=====================================================
+*/
+
+/*
+=====================================================
+        Inicio configuração de estilo sobre.html
+=====================================================
+*/
+
+
+/*
+=====================================================
+        Fim configuração de estilo sobre.html
+=====================================================
+*/
+
+
+/*
+=====================================================
+        Inicio configuração de estilo doar.html
+=====================================================
+*/
+
+.titulo-doar{
+    justify-content: center;
+    display: flex;
+}
+
+.doar-content{
+    display: flex;
+    flex-direction: column;
+    padding: 3%;
+    max-width: 90%;
+    background-color: #123329;
+    margin: 0 auto;
+    color: #ffffff;
+}
+
+/*Inicio config radio*/
+    /* Coloca as duas opções lado a lado na mesma linha */
+    .grupo-documento {
+        display: flex;
+        flex-direction: row; /* Garante o alinhamento horizontal */
+        flex-direction: column;
+    }
+
+
+    /* Alinha a bolinha verticalmente com o texto */
+    .opcao-radio {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        cursor: pointer;
+    }
+    
+    /*Fim config radio*/
+
+    .btn-doar{
+        margin-top: 2rem;
+        padding: 2%;
+        border-radius: 2rem;
+    }
+
+
+/*
+=====================================================
+        Fim configuração de estilo doar.html
+=====================================================
+*/
+
+
+/*
+=====================================================
+    Inicio configuração de estilo inscrever.html
+=====================================================
+*/
+
+/*
+=====================================================
+    Fim configuração de estilo inscrever.html
+=====================================================
+*/
