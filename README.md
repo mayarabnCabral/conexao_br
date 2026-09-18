@@ -45,7 +45,7 @@ conexao_br/
 Clone este repositório:
 
 ```
-git clone [https://github.com/mayarabnCabral/conexao_br.git](https://github.com/mayarabnCabral/conexao_br.git)
+git clone https://github.com/mayarabnCabral/conexao_br.git
 ```
 Acesse a pasta do projeto:
 ```
