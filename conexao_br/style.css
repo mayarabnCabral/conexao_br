@@ -49,6 +49,8 @@ main {
         background-color: #ccc;
         margin: 20px 0;
     }
+
+    
 /*Fim config tags nativas*/
 
 /*
@@ -56,17 +58,13 @@ main {
                     Inicio config Menu 
 =====================================================
 */
-        section {
-            text-decoration: none;
-        }
-
         .menu {
             background: linear-gradient(to right, #408a87, #429c63);
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            z-index: 1000;
+            z-index: 1;
             height: 80px;
             display: flex; /* Corrigido de "fixed" para "flex" */
             align-items: center;
@@ -78,7 +76,7 @@ main {
             justify-content: space-between;
             align-items: center;
             padding: 0 40px;
-            max-width: 1400px;
+            max-width: 100%;
             margin: 0 auto;
         }
 
@@ -94,16 +92,13 @@ main {
         .nav-links a,
         .links-nav a {
             color: white;
-            text-decoration: none;
-            /* Remove o sublinhado padrão */
-            outline: none;
-            /* Remove a borda azul de seleção ao clicar */
+            text-decoration: none;/* Remove o sublinhado padrão */
+            outline: none;/* Remove a borda azul de seleção ao clicar */
             font-weight: bold;
             font-size: 18px;
             position: relative;
             transition: color 0.3s;
-            -webkit-tap-highlight-color: transparent;
-            /* Remove o brilho azul no toque do celular */
+            -webkit-tap-highlight-color: transparent;/* Remove o brilho azul no toque do celular */
         }
 
 
@@ -261,7 +256,7 @@ main {
             position: relative;
             max-width: 100%;
             margin: 0 auto;
-            overflow: hidden;
+            overflow: hidden; /* Mantém tudo contido dentro do slide */
             border-radius: 0;
         }
 
