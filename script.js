@@ -1,3 +1,10 @@
+
+/* 
+================================
+        Inicio config menu
+================================
+*/
+
 document.addEventListener('DOMContentLoaded', () => {
     const menuToggle = document.getElementById('menuToggle');
     const navLinks = document.getElementById('navLinks');
@@ -18,12 +25,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-    const slidesContainer = document.getElementById('slides');
+/* 
+================================
+        Fim config menu
+================================
+*/
+
+
+/* 
+================================
+     Inicio config carrossel
+================================
+*/
+
+const slidesContainer = document.getElementById('slides');
     const slides = document.querySelectorAll('.slide');
     const btnAnterior = document.getElementById('btnAnterior');
     const btnProximo = document.getElementById('btnProximo');
-    const dots = document.querySelectorAll('.dot');
+    const pontos = document.querySelectorAll('.ponto');
 
     let indiceAtual = 0;
     const totalSlides = slides.length;
@@ -32,11 +51,11 @@ document.addEventListener('DOMContentLoaded', () => {
     function atualizarCarrossel() {
         slidesContainer.style.transform = `translateX(-${indiceAtual * 100}%)`;
 
-        dots.forEach((dot, index) => {
+        pontos.forEach((ponto, index) => {
             if (index === indiceAtual) {
-                dot.classList.add('ativo');
+                ponto.classList.add('ativo');
             } else {
-                dot.classList.remove('ativo');
+                ponto.classList.remove('ativo');
             }
         });
     }
@@ -58,8 +77,8 @@ document.addEventListener('DOMContentLoaded', () => {
     btnAnterior.addEventListener('click', slideAnterior);
 
     // Evento de clique das bolinhas
-    dots.forEach(dot => {
-        dot.addEventListener('click', (e) => {
+    pontos.forEach(ponto => {
+        ponto.addEventListener('click', (e) => {
             indiceAtual = parseInt(e.target.dataset.index);
             atualizarCarrossel();
         });
@@ -67,4 +86,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Transição automática
     setInterval(proximoSlide, 6000);
-});
+/* 
+================================
+     Fim config carrossel
+================================
+*/

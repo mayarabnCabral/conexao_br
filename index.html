@@ -1,177 +1,161 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="midia/Logo_conexao_br_v2-removebg-preview.webp">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
-    <!-- Inicio config font -->
+    <script src="script.js" defer></script>
+    
+    <!-- Configuração de fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
-    <!-- Fim config font -->
-    <title>Conexão BR</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <title>Conexão BR - Início</title>
 </head>
 
 <body>
-    <!-- Inicio carrossel -->
-    <header class="cabecalho">
-        <div class="nav-container">
+    <!-- Início do cabeçalho -->
+    <header class="menu">
+        <nav class="nav-container" aria-label="Navegação principal">
             <div class="logo-wrapper">
-                <img src="midia/logo_branco-removebg-preview.webp"
-                    alt="Logotipo circular da ONG Conexão BR nas cores verde, azul e amarelo. O emblema inclui três figuras humanas estilizadas e interligadas em círculo, um livro aberto com pássaros voando no topo, uma ponte, folhas e uma bússola com a bandeira do Brasil"
-                    class="logo-nav">
+                <a href="index.html">
+                    <img src="midia/logo_branco-removebg-preview.webp"
+                        alt="Logotipo circular da ONG Conexão BR nas cores verde, azul e amarelo. O emblema inclui três figuras humanas estilizadas e interligadas em círculo, um livro aberto com pássaros voando no topo, uma ponte, folhas e uma bússola com a bandeira do Brasil"
+                        class="logo-nav">
+                </a>
             </div>
 
-            <button class="menu-toggle" id="menuToggle" type="button">
+            <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menu de navegação" aria-expanded="false">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
             </button>
 
             <ul class="nav-links" id="navLinks">
-                <li><a href="index.html">Início</a></li>
+                                            <!--indica qual pagina o usuário está (Acessibilidade)-->
+                <li><a href="index.html" aria-current="page">Início</a></li>
                 <li><a href="sobre.html">Sobre Nós</a></li>
                 <li><a href="doar.html">Doar</a></li>
-                <li><a href="inscrever.html">Increver-se</a></li>
+                <li><a href="inscrever.html">Inscrever-se</a></li>
             </ul>
 
-            <div class="links-nav">
-                <a href="https://www.linkedin.com/in/mayarabnc/" target="_blank">
-                    <i class="devicon-linkedin-plain"></i>
-                </a>
-                <a href="https://github.com/mayarabnCabral" target="_blank">
-                    <i class="devicon-github-original"></i>
+            <div class="links-nav" aria-label="Redes sociais do desenvolvedor">
+                <a href="https://github.com/mayarabnCabral/conexao_br" target="_blank" rel="noopener noreferrer" aria-label="Perfil do GitHub">
+                    <i class="devicon-github-original" aria-hidden="true"></i>
                 </a>
             </div>
-        </div>
+        </nav>
     </header>
-    <!-- Fim menu -->
+    <!-- Fim do cabeçalho -->
 
-    <!-- Inicio carrossel -->
-    <div class="carrossel">
-        <div class="carrossel-slides" id="slides">
-            <div class="slide ativo">
-                <a href="sobre.html">
-                    <img src="midia/Logo_conexao_br_v2.webp" alt="Slide 1">
-                    <legend class="legenda">Conheça nossa instituição</legend>
-                </a>
+    <main>
+        <!-- Início do carrossel -->
+        <section class="carrossel" aria-label="Destaques">
+            <div class="carrossel-slides" id="slides">
+                <div class="slide ativo">
+                    <a href="sobre.html">
+                        <img src="midia/Logo_conexao_br_v2.webp" alt="Conheça nossa instituição">
+                        <span class="legenda">Conheça nossa instituição</span>
+                    </a>
+                </div>
+                <div class="slide">
+                    <a href="doar.html">
+                        <img src="midia/sala_de_aula.webp" alt="Sala de aula da ONG Conexão BR">
+                        <span class="legenda">Espaços de aprendizado que aproximam pessoas, estimulam ideias e transformam o ensino em uma experiência coletiva.</span>
+                    </a>
+                </div>
+                <div class="slide">
+                    <a href="sobre.html">
+                        <img src="midia/fachada_conexao_br_1.webp" alt="Fachada da sede da Conexão BR">
+                        <span class="legenda">Presença nacional: encontre a sede mais próxima e venha nos visitar!</span>
+                    </a>
+                </div>
             </div>
-            <div class="slide">
-                <a href="doar.html">
-                    <img src="midia/sala_de_aula.webp" alt="Slide 2">
-                    <legend class="legenda">Espaços de aprendizado que aproximam pessoas, estimulam ideias e transformam
-                        o ensino em uma experiência coletiva.</legend>
-                </a>
+
+            <!-- Botões de navegação -->
+            <button class="btn-carrossel btn-anterior" id="btnAnterior" aria-label="Slide anterior">&#10094;</button>
+            <button class="btn-carrossel btn-proximo" id="btnProximo" aria-label="Próximo slide">&#10095;</button>
+
+            <!-- Indicadores (bolinhas) -->
+            <div class="indicadores" id="indicadores" role="tablist" aria-label="Selecione um slide">
+                <button class="ponto ativo" data-index="0" role="tab" aria-selected="true" aria-label="Ir para o slide 1"></button>
+                <button class="ponto" data-index="1" role="tab" aria-selected="false" aria-label="Ir para o slide 2"></button>
+                <button class="ponto" data-index="2" role="tab" aria-selected="false" aria-label="Ir para o slide 3"></button>
             </div>
-            <div class="slide">
-                <a href="sobre.html">
-                    <img src="midia/fachada_conexao_br_1.webp" alt="Slide 3">
-                    <legend class="legenda">Presença nacional: encontre a sede mais próxima e venha nos visitar!
-                    </legend>
-                </a>
-            </div>
-        </div>
-        <!-- Inicio botões de navegação -->
-        <button class="btn-carrossel btn-anterior" id="btnAnterior">&#10094;</button>
-        <button class="btn-carrossel btn-proximo" id="btnProximo">&#10095;</button>
-        <!-- Fim botões de navegação -->
+        </section>
+        <!-- Fim do carrossel -->
 
-        <!-- Inicio indicadores (bolinhas) -->
-        <div class="indicadores" id="indicadores">
-            <span class="dot ativo" data-index="0"></span>
-            <span class="dot" data-index="1"></span>
-            <span class="dot" data-index="2"></span>
-        </div>
-        <!-- Fim indicadores (bolinhas) -->
-        <!-- Fim carrossel -->
+        <!-- Seção de citação e resumo -->
+         <div>
+            
+         </div>
+        <section class="resumo">
+                <p>
+                    "A educação é a chave para abrir portas e transformar vidas. Acreditamos que cada pessoa merece a
+                    oportunidade de aprender, crescer e alcançar seu potencial máximo. Por meio da educação, buscamos
+                    capacitar indivíduos, fortalecer comunidades e construir um futuro mais justo e igualitário para todos."
+                </p>
 
-    </div>
+            <p>
+                Acreditamos que uma oportunidade pode mudar uma história. Por meio da educação, alfabetização e inclusão social,
+                ajudamos imigrantes, refugiados e pessoas de baixa renda a construir novos caminhos, conquistar autonomia e
+                encontrar seu espaço na sociedade brasileira.
+            </p>
 
-    <section class="resumo">
-        <p>
-            <i>
-                "A educação é a chave para abrir portas e transformar vidas. Acreditamos que cada pessoa merece a
-                oportunidade de aprender, crescer e alcançar seu potencial máximo. Por meio da educação, buscamos
-                capacitar indivíduos, fortalecer comunidades e construir um futuro mais justo e igualitário para
-                todos."
-            </i>
-        </p>
-        <br>
-        <p>
-            Acreditamos que uma oportunidade pode mudar uma história. Por meio da educação, alfabetização e inclusão
-            social,
-            ajudamos imigrantes, refugiados e pessoas de baixa renda a construir novos caminhos, conquistar autonomia e
-            encontrar seu espaço na sociedade brasileira.
+            <p>
+                Porque transformar uma vida é o primeiro passo para transformar o mundo.
+            </p>
+        </section>
 
-        </p>
-        <br>
-        <p>
-            Porque transformar uma vida é o primeiro passo para transformar o mundo.
-        </p>
-        <hr>
-    </section>
-
-    <section class="card-container">
-        <article class="card">
-            <div class="card-content">
-                <h3 class="card-title">Conexão BR</h3>
-                <p class="card-text">
-                    Somos uma organização não governamental, sem fins lucrativos, impulsionada pelo propósito de
-                    transformar realidades por meio da educação e da inclusão social. Atuamos diretamente no
-                    fortalecimento de comunidades em situação de vulnerabilidade, oferecendo programas educacionais,
-                    capacitação e suporte contínuo. Acreditamos no potencial ilimitado de cada indivíduo e trabalhamos
-                    diariamente para construir caminhos acessíveis para que todos possam desenvolver suas habilidades,
-                    conquistar autonomia e alcançar seu potencial máximo.
-                </br>
-                    Junto a parceiros, voluntários e à própria comunidade, unimos forças para criar pontes onde antes
-                    existiam barreiras.
-                </p> 
-                <a href="sobre.html" class="btn-card ">Conheça nossa história</a>
-            </div>
-        </article>
-        <div class="colum-direita">
+        <!-- Seção de cards explicativos -->
+         <div class="fundo-card">
+            <section class="card-container" aria-label="Áreas de atuação e links rápidos">
             <article class="card">
                 <div class="card-content">
-                    <h3 class="card-title">Doe</h3>
-                    <p class="card-text">Oferecemos oportunidades de aprendizado acessíveis para fortalecer a autonomia
-                        na
-                        comunidade.</p>
-                    <a href="doar.html" class="btn-card ">Doe</a>
+                    <h2>Conexão BR</h2>
+                    <p class="card-text">
+                        Somos uma organização não governamental, sem fins lucrativos, impulsionada pelo propósito de
+                        transformar realidades por meio da educação e da inclusão social. Atuamos diretamente no
+                        fortalecimento de comunidades em situação de vulnerabilidade, oferecendo programas educacionais,
+                        capacitação e suporte contínuo. Acreditamos no potencial ilimitado de cada indivíduo e trabalhamos
+                        diariamente para construir caminhos acessíveis para que todos possam desenvolver suas habilidades,
+                        conquistar autonomia e alcançar seu potencial máximo.
+                    </p>
+                    <p class="card-text">
+                        Junto a parceiros, voluntários e à própria comunidade, unimos forças para criar pontes onde antes
+                        existiam barreiras.
+                    </p>
+                    <button class="btn-card" onclick="window.location.href='sobre.html'">Conheça nossa história</button>
                 </div>
             </article>
-            <article class="card">
-                <div class="card-content">
-                    <h3 class="card-title">Acesso & Inclusão</h3>
-                    <p class="card-text">Oferecemos oportunidades de aprendizado gratuitos para fortalecer a autonomia
-                        na
-                        comunidade.</p>
-                    <a href="inscrever.html" class="btn-card ">Inscreva-se</a>
-                </div>
-            </article>
-        </div>
-    </section>
 
-    <div>
-        Responsáveis
-    </div>
-    <div>
-        Video de comentaríos e ajuda (gerado por IA)
-    </div>
-    <div>
-        relatos escritos
-    </div>
-    <div>
-        botão para pagina de doação (R$) | botão se inscreva
-    </div>
+            <div class="coluna-direita">
+                <article class="card espacamento-card">
+                    <div class="card-content">
+                        <h3>Doe</h3>
+                        <p class="card-text">
+                            Oferecemos oportunidades de aprendizado acessíveis para fortalecer a autonomia na comunidade.
+                        </p>
+                        <button class="btn-card" onclick="window.location.href='doar.html'">Doe</button>
+                    </div>
+                </article>
 
-    <div>
-        ao clicar em se inscreva abre um formulario para voluntarios ou ajudados
-    </div>
-
+                <article class="card">
+                    <div class="card-content">
+                        <h3>Acesso & Inclusão</h3>
+                        <p class="card-text">
+                            Oferecemos oportunidades de aprendizado gratuitos para fortalecer a autonomia na comunidade.
+                        </p>
+                        <button class="btn-card" onclick="window.location.href='inscrever.html'">Inscreva-se</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+         </div>
+    </main>
 </body>
 
 </html>
