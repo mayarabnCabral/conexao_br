@@ -655,7 +655,7 @@ hr {
     display: block;
 
     /* Máscara de transparência */
-    -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,1) 55%, rgba(0,0,0,0) 100%);
+    -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,1) 55%, rgba(0,0,0,0) 100%); /* Auxilia para que a máscara de transparência funcione corretamente nos navegadores baseados em WebKit {motor grafico} (Chrome, Safari, Edge) */
     mask-image: linear-gradient(to right, rgba(0,0,0,1) 55%, rgba(0,0,0,0) 100%);
 }
 
