@@ -664,6 +664,26 @@ hr {
     padding: 40px 20px 40px 0;
 }
 
+.btn-projetos{
+display: inline-block;
+    text-align: center;
+    background: #41976d;
+    color: #ffffff;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 2rem;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+    margin-top: 12px;
+}
+
+.btn-projetos:hover {
+    background-color: #2d6a4d;
+    color: #ffffff;
+}
+
 /* RESPONSIVIDADE PARA DISPOSITIVOS MÓVEIS */
 @media (max-width: 768px) {
     .coluna-img {
