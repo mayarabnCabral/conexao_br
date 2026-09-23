@@ -610,16 +610,32 @@ hr {
 /* Alinha a imagem e o parágrafo lado a lado */
 .espacamento-img {
     display: flex;
-    align-items: center; /* Alinha verticalmente ao centro (ou 'flex-start' para alinhar ao topo) */
-    gap: 20px;          /* Espaço entre a imagem e o texto */
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 2%;
 }
 
 /* Opcional: Garante que a imagem respeite a largura sem distorcer */
 .espacamento-img img {
-    max-width: 20%;
+    max-width: 20rem;
     height: auto;
 }
 
+.sedes-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas de tamanho igual */
+    gap: 30px 20px; /* Espaçamento entre linhas e colunas */
+    margin-top: 20px;
+    padding-left: 15%;
+    max-width: 100%;
+}
+
+@media (max-width: 768px) {
+    .sedes-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+}
 /*
 =====================================================
         Fim configuração de estilo sobre.html
