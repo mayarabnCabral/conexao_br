@@ -771,6 +771,382 @@ display: inline-block;
 =====================================================
 */
 
+/*
+=====================================================
+    Inicio configuração de estilo doacao.html
+=====================================================
+*/
+.capa {
+    min-height: 380px;
+    display: flex;
+    align-items: center;
+    background:
+        linear-gradient(90deg, rgba(18, 51, 41, 0.92), rgba(64, 138, 135, 0.55), rgba(18, 51, 41, 0.2)),
+        url("midia/sala_de_aula.webp");
+    background-size: cover;
+    background-position: center;
+}
+
+.conteudo-capa {
+    max-width: 650px;
+    margin-left: 9%;
+    padding: 20px 0;
+    color: #ffffff;
+}
+
+.etiqueta,
+.etiqueta-secao {
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #FBD012;
+}
+
+.capa h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.1;
+    margin: 16px 0;
+}
+
+.capa h1 strong {
+    color: #FBD012;
+}
+
+.capa p {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    line-height: 1.6;
+    max-width: 560px;
+    margin: 0;
+}
+.secao-identificacao {
+    padding: 4rem 5%;
+    background-color: #E8E8E8;
+}
+
+.card-identificacao {
+    max-width: 850px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 2.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    color: #123329;
+}
+
+.card-identificacao .etiqueta-secao {
+    color: #408a87;
+}
+
+.card-identificacao h2 {
+    font-size: 2rem;
+    margin: 12px 0;
+}
+
+.descricao-identificacao {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 1.8rem;
+}
+
+.opcoes-identificacao {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.dados-identificacao {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #ddd;
+}
+
+.form-tipo {
+    margin-top: 1.5rem;
+    padding: 1.4rem;
+    border-radius: 12px;
+    background: #f3f6f5;
+}
+
+.form-tipo h3 {
+    margin: 0 0 1.4rem;
+}
+
+.oculto {
+    display: none !important;
+}
+
+/* ---------- DOAÇÃO ---------- */
+.secao-doacao {
+    padding: 4rem 5%;
+    background-color: #123329;
+    color: #ffffff;
+}
+
+.container-doacao {
+    max-width: 1150px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.info-doacao h2 {
+    font-size: clamp(2rem, 4vw, 2.6rem);
+    margin: 12px 0 18px;
+}
+
+.info-doacao > p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #d5e3de;
+    margin: 0 0 1.8rem;
+}
+
+.beneficio {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 1.3rem;
+}
+
+.icone-beneficio {
+    min-width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: #FBD012;
+    color: #123329;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.beneficio h3 {
+    margin: 0 0 4px;
+}
+
+.beneficio p {
+    margin: 0;
+    color: #c4d4ce;
+    line-height: 1.5;
+}
+
+.card-doacao {
+    background: #ffffff;
+    color: #123329;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.cabecalho-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 1.8rem;
+}
+
+.cabecalho-card h2 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.cabecalho-card p {
+    margin: 4px 0 0;
+    color: #6b7773;
+}
+
+.coracao {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #e3f1ea;
+    color: #429c63;
+    font-size: 23px;
+}
+
+/* ---------- FORMULÁRIOS ---------- */
+/* style.css aplica padding/largura globais em label e input; aqui são neutralizados */
+.grupo-formulario {
+    margin-bottom: 1.5rem;
+}
+
+.grupo-formulario > label {
+    display: block;
+    padding: 0;
+    margin-bottom: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.grupo-formulario input[type="text"],
+.grupo-formulario input[type="tel"] {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px;
+    border: 1px solid #ccd5d2;
+    border-radius: 0.5rem;
+    font-family: inherit;
+    font-size: 1rem;
+    outline: none;
+}
+
+.grupo-formulario input:focus,
+.input-valor:focus-within {
+    border-color: #429c63;
+    box-shadow: 0 0 0 3px rgba(66, 156, 99, 0.2);
+}
+
+.grupo-formulario small {
+    display: block;
+    margin-top: 6px;
+    color: #6b7773;
+}
+
+.input-valor {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccd5d2;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.input-valor span {
+    padding-left: 14px;
+    font-weight: bold;
+    color: #429c63;
+}
+
+.grupo-formulario .input-valor input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    font-family: inherit;
+    font-size: 1rem;
+    outline: none;
+}
+
+.opcao-selecao,
+.opcao-pagamento {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 13px;
+    border: 1px solid #ccd5d2;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: normal;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.opcao-selecao:hover,
+.opcao-pagamento:hover {
+    background: #eef5f1;
+}
+
+.opcao-selecao input,
+.opcao-pagamento input {
+    width: auto;
+    accent-color: #429c63;
+}
+
+.opcoes-pagamento {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.opcao-pagamento div {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.opcao-pagamento span {
+    color: #6b7773;
+    font-size: 0.85rem;
+}
+
+.resumo-doacao {
+    background: #f3f6f5;
+    border-radius: 10px;
+    padding: 17px;
+    margin: 1.5rem 0;
+}
+
+.resumo-doacao div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.resumo-doacao div:last-child {
+    margin-bottom: 0;
+}
+
+.resumo-doacao span {
+    color: #5c6a65;
+}
+
+/* Botão no padrão .btn-card do site */
+.botao-doar {
+    width: 100%;
+    padding: 14px 16px;
+    border: none;
+    border-radius: 2rem;
+    background: #cfda01;
+    color: #000000;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.botao-doar:hover {
+    background-color: #939b19;
+    color: #ffffff;
+}
+
+.mensagem {
+    text-align: center;
+    margin: 15px 0 0;
+    font-weight: bold;
+}
+
+/* ---------- RESPONSIVO ---------- */
+@media (max-width: 800px) {
+    .conteudo-capa {
+        margin: 0 8%;
+    }
+
+    .card-identificacao {
+        padding: 1.5rem;
+    }
+
+    .container-doacao {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .card-doacao {
+        padding: 1.5rem;
+    }
+}
+
+/*
+=====================================================
+    Fim configuração de estilo doacao.html
+=====================================================
+*/
 
 /*
 =====================================================

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="midia/Logo_conexao_br_v2-removebg-preview.webp">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+
+    <!-- Configuração de fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+
+    <title>Conexão BR - Doar</title>
+</head>
+
+<body>
+
+    <!-- Início do cabeçalho -->
+    <header class="menu">
+        <nav class="nav-container" aria-label="Navegação principal">
+            <div class="logo-wrapper">
+                <a href="index.html">
+                    <img src="midia/logo_branco-removebg-preview.webp"
+                        alt="Logotipo circular da ONG Conexão BR nas cores verde, azul e amarelo. O emblema inclui três figuras humanas estilizadas e interligadas em círculo, um livro aberto com pássaros voando no topo, uma ponte, folhas e uma bússola com a bandeira do Brasil"
+                        class="logo-nav">
+                </a>
+            </div>
+
+            <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menu de navegação" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="sobre.html">Sobre Nós</a></li>
+                <li><a href="doacao.html" aria-current="page">Doar</a></li>
+                <li><a href="inscrever.html">Inscrever-se</a></li>
+            </ul>
+
+            <div class="links-nav" aria-label="Redes sociais do desenvolvedor">
+                <a href="https://github.com/mayarabnCabral/conexao_br" target="_blank" rel="noopener noreferrer" aria-label="Perfil do GitHub">
+                    <i class="devicon-github-original" aria-hidden="true"></i>
+                </a>
+            </div>
+        </nav>
+    </header>
+    <!-- Fim do cabeçalho -->
+
+    <main>
+    <!-- CAPA -->
+    <section class="capa">
+        <div class="conteudo-capa">
+            <span class="etiqueta">APOIE NOSSA CAUSA</span>
+
+            <h1>
+                Sua contribuição pode
+                <strong>transformar vidas.</strong>
+            </h1>
+
+            <p>
+                A Conexão BR trabalha para apoiar imigrantes,
+                oferecendo acolhimento, integração cultural,
+                aulas de português e oportunidades.
+            </p>
+        </div>
+    </section>
+
+    <!-- ÁREA DE IDENTIFICAÇÃO -->
+    <section id="identificacao" class="secao-identificacao">
+        <div class="card-identificacao">
+            <span class="etiqueta-secao">ANTES DE DOAR</span>
+            <h2>Dados do doador</h2>
+            <p class="descricao-identificacao">
+                Você pode se identificar ou continuar anônimo. Essa escolha não impede a realização da sua doação.
+            </p>
+
+            <div class="grupo-formulario">
+                <label>Você gostaria de se declarar na doação?</label>
+
+                <div class="opcoes-identificacao">
+                    <label class="opcao-selecao">
+                        <input type="radio" name="declarar" value="sim">
+                        <span>Sim</span>
+                    </label>
+
+                    <label class="opcao-selecao">
+                        <input type="radio" name="declarar" value="nao">
+                        <span>Não (prefiro continuar anônimo)</span>
+                    </label>
+                </div>
+            </div>
+
+            <div id="dadosIdentificacao" class="dados-identificacao oculto">
+                <div class="grupo-formulario">
+                    <label>Você doaria como:</label>
+
+                    <div class="opcoes-identificacao">
+                        <label class="opcao-selecao">
+                            <input type="radio" name="tipoDoador" value="fisica">
+                            <span>Pessoa Física</span>
+                        </label>
+
+                        <label class="opcao-selecao">
+                            <input type="radio" name="tipoDoador" value="empresa">
+                            <span>Empresa</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- PESSOA FÍSICA -->
+                <div id="formPessoaFisica" class="form-tipo oculto">
+                    <h3>Dados da pessoa física</h3>
+
+                    <div class="grupo-formulario">
+                        <label for="nomePessoa">Nome completo</label>
+                        <input type="text" id="nomePessoa" name="nomePessoa" placeholder="Digite seu nome">
+                    </div>
+
+                    <div class="grupo-formulario">
+                        <label for="numeroPessoa">Número para contato</label>
+                        <input type="tel" id="numeroPessoa" name="numeroPessoa" placeholder="(11) 99999-9999">
+                    </div>
+
+                    <div class="grupo-formulario">
+                        <label for="cpfPessoa">CPF</label>
+                        <input type="text" id="cpfPessoa" name="cpfPessoa" inputmode="numeric" maxlength="14" placeholder="000.000.000-00">
+                    </div>
+                </div>
+
+                <!-- EMPRESA -->
+                <div id="formEmpresa" class="form-tipo oculto">
+                    <h3>Dados da empresa</h3>
+
+                    <div class="grupo-formulario">
+                        <label for="nomeEmpresa">Nome da empresa</label>
+                        <input type="text" id="nomeEmpresa" name="nomeEmpresa" placeholder="Digite o nome da empresa">
+                    </div>
+
+                    <div class="grupo-formulario">
+                        <label for="cnpjEmpresa">CNPJ</label>
+                        <input type="text" id="cnpjEmpresa" name="cnpjEmpresa" inputmode="numeric" maxlength="18" placeholder="00.000.000/0000-00">
+                    </div>
+
+                    <div class="grupo-formulario">
+                        <label for="numeroEmpresa">Número para contato</label>
+                        <input type="tel" id="numeroEmpresa" name="numeroEmpresa" placeholder="(11) 99999-9999">
+                    </div>
+
+                    <div class="grupo-formulario">
+                        <label for="representanteEmpresa">Nome do representante da doação</label>
+                        <input type="text" id="representanteEmpresa" name="representanteEmpresa" placeholder="Nome do representante">
+                    </div>
+
+                    <div class="grupo-formulario">
+                        <label for="cargoRepresentante">Cargo do representante</label>
+                        <input type="text" id="cargoRepresentante" name="cargoRepresentante" placeholder="Ex.: Diretor, Gerente">
+                    </div>
+
+                    <div class="grupo-formulario">
+                        <label for="cpfRepresentante">CPF do representante</label>
+                        <input type="text" id="cpfRepresentante" name="cpfRepresentante" inputmode="numeric" maxlength="14" placeholder="000.000.000-00">
+                    </div>
+                </div>
+            </div>
+
+            <p id="mensagemIdentificacao" class="mensagem"></p>
+
+            <button type="button" id="continuarDoacao" class="botao-doar">
+                Continuar para doação
+            </button>
+        </div>
+    </section>
+
+    <!-- ÁREA DE DOAÇÃO -->
+    <section id="doacao" class="secao-doacao">
+        <div class="container-doacao">
+
+            <!-- TEXTO -->
+            <div class="info-doacao">
+                <span class="etiqueta-secao">FAÇA PARTE</span>
+
+                <h2>Faça uma doação</h2>
+
+                <p>
+                    Escolha o valor que deseja doar e a forma
+                    de pagamento. Sua contribuição ajuda a
+                    manter nossos projetos e ações sociais.
+                </p>
+
+                <div class="beneficio">
+                    <div class="icone-beneficio">✓</div>
+                    <div>
+                        <h3>Apoio aos imigrantes</h3>
+                        <p>Contribua para projetos de acolhimento e integração.</p>
+                    </div>
+                </div>
+
+                <div class="beneficio">
+                    <div class="icone-beneficio">✓</div>
+                    <div>
+                        <h3>Educação e cultura</h3>
+                        <p>Ajude a manter aulas e atividades de integração cultural.</p>
+                    </div>
+                </div>
+
+                <div class="beneficio">
+                    <div class="icone-beneficio">✓</div>
+                    <div>
+                        <h3>Mais oportunidades</h3>
+                        <p>Sua doação contribui para novas oportunidades para nossa comunidade.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FORMULÁRIO -->
+            <div class="card-doacao">
+                <div class="cabecalho-card">
+                    <span class="coracao">♥</span>
+                    <div>
+                        <h2>Realizar doação</h2>
+                        <p>Preencha os dados abaixo</p>
+                    </div>
+                </div>
+
+                <form id="formularioDoacao">
+                    <div class="grupo-formulario">
+                        <label for="codigo">Código da doação</label>
+                        <input type="text" id="codigo" name="codigo" inputmode="numeric" maxlength="6"
+                            pattern="[0-9]{6}" placeholder="Ex.: 123456" required>
+                        <small>Digite exatamente 6 números.</small>
+                    </div>
+
+                    <div class="grupo-formulario">
+                        <label for="valor">Valor da doação</label>
+                        <div class="input-valor">
+                            <span>R$</span>
+                            <input type="text" id="valor" name="valor" inputmode="decimal"
+                                placeholder="10,00" required>
+                        </div>
+                        <small>Valor mínimo: R$ 10,00</small>
+                    </div>
+
+                    <div class="grupo-formulario">
+                        <label>Meio de pagamento</label>
+
+                        <div class="opcoes-pagamento">
+                            <label class="opcao-pagamento">
+                                <input type="radio" name="pagamento" value="0" required>
+                                <div>
+                                    <strong>PIX</strong>
+                                    <span>Sem taxa MDR</span>
+                                </div>
+                            </label>
+
+                            <label class="opcao-pagamento">
+                                <input type="radio" name="pagamento" value="1">
+                                <div>
+                                    <strong>Débito</strong>
+                                    <span>MDR de 1%</span>
+                                </div>
+                            </label>
+
+                            <label class="opcao-pagamento">
+                                <input type="radio" name="pagamento" value="2">
+                                <div>
+                                    <strong>Crédito</strong>
+                                    <span>MDR de 5%</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="resumo-doacao">
+                        <div>
+                            <span>Valor da doação</span>
+                            <strong id="resumoValor">R$ 0,00</strong>
+                        </div>
+
+                        <div>
+                            <span>Forma de pagamento</span>
+                            <strong id="resumoPagamento">-</strong>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="botao-doar">Confirmar doação</button>
+                    <p id="mensagem" class="mensagem"></p>
+                </form>
+            </div>
+        </div>
+    </section>
+    </main>
+
+</body>
+</html>
