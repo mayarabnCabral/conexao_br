@@ -684,21 +684,50 @@ display: inline-block;
     color: #ffffff;
 }
 
-.container-card-sobre{
+.container-card-sobre {
     display: flex;
     flex-direction: row;
     padding: 3%;
-    gap: 90px;
+    gap: 30px;
+    justify-content: center;
 }
-.card-sobre{
+
+.card-sobre {
+    flex: 1;
     background-color: #ffffff;
     color: #123329;
     border-radius: 12px;
     padding: 2rem;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-
-    border-top: 1rem solid #047857;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    border-top: 5px solid #047857;
 }
+
+
+.titulo-card {
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    gap: 12px;
+    margin-bottom: 1rem;
+}
+
+.titulo-card h2 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+.titulo-card i {
+    font-size: 2rem; 
+    color: #047857;
+}
+
+.fa-eye{
+    font-size: 2rem; 
+    color: #047857;
+    margin-bottom: 1rem;
+
+}
+
 
 /* RESPONSIVIDADE PARA DISPOSITIVOS MÓVEIS */
 @media (max-width: 768px) {
