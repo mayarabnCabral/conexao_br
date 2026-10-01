@@ -684,6 +684,22 @@ display: inline-block;
     color: #ffffff;
 }
 
+.container-card-sobre{
+    display: flex;
+    flex-direction: row;
+    padding: 3%;
+    gap: 90px;
+}
+.card-sobre{
+    background-color: #ffffff;
+    color: #123329;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+
+    border-top: 1rem solid #047857;
+}
+
 /* RESPONSIVIDADE PARA DISPOSITIVOS MÓVEIS */
 @media (max-width: 768px) {
     .coluna-img {
@@ -709,6 +725,12 @@ display: inline-block;
         grid-template-columns: 1fr;
         padding-left: 0;
     }
+
+    .espacamento-img img {
+        max-width: 10rem;
+        height: auto;
+        border-radius: 8px;
+}
 }
 /*
 =====================================================
