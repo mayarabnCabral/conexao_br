@@ -643,6 +643,7 @@ hr {
 .bloco-imagem {
     flex: 1.2;
     top: 0;
+    align-self: stretch;
 }
 
 .bloco-imagem img {
@@ -1194,7 +1195,6 @@ display: inline-block;
     position: relative;
     overflow: hidden;
     display: flex;
-    align-items: center;
 }
 
 .coluna-texto-img {
