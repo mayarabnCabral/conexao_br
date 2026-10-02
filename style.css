@@ -640,12 +640,9 @@ hr {
     color: #ffffff;
 }
 
-/* Bloco da Imagem com o degradê suave no lado direito */
 .bloco-imagem {
     flex: 1.2;
-    position: sticky;
     top: 0;
-    height: 100vh;
 }
 
 .bloco-imagem img {
