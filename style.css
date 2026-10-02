@@ -659,6 +659,17 @@ hr {
     mask-image: linear-gradient(to right, rgba(0,0,0,1) 55%, rgba(0,0,0,0) 100%);
 }
 
+.bloco-imagem-historia img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+
+    /* Máscara de transparência */
+    -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 55%, rgba(0,0,0,0) 100%); /* Auxilia para que a máscara de transparência funcione corretamente nos navegadores baseados em WebKit {motor grafico} (Chrome, Safari, Edge) */
+    mask-image: linear-gradient(to left, rgba(0,0,0,1) 55%, rgba(0,0,0,0) 100%);
+}
+
 .coluna-texto {
     flex: 1;
     padding: 40px 20px 40px 0;
