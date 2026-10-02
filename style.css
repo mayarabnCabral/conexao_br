@@ -469,7 +469,7 @@ hr {
 }
 
 .card {
-    background-color: #408a87e1;
+    background-color: #047857;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
@@ -512,8 +512,8 @@ hr {
 .btn-card {
     display: inline-block;
     text-align: center;
-    background: #cfda01;
-    color: #000000;
+    background: #FBBF24;
+    color: #000604;
     padding: 10px 16px;
     border: none;
     border-radius: 2rem;
@@ -524,7 +524,7 @@ hr {
 }
 
 .btn-card:hover {
-    background-color: #939b19;
+    background-color: #c6961d;
     color: #ffffff;
 }
 
@@ -717,6 +717,7 @@ display: inline-block;
     justify-content: center; 
     gap: 12px;
     margin-bottom: 1rem;
+    color: #047857;
 }
 
 .titulo-card h2 {
@@ -805,60 +806,6 @@ display: inline-block;
 
 /*
 =====================================================
-        Inicio configuração de estilo doar.html
-=====================================================
-*/
-
-.titulo-doar {
-    justify-content: center;
-    display: flex;
-}
-
-.doar-content {
-    display: flex;
-    flex-direction: column;
-    padding: 3%;
-    max-width: 90%;
-    background-color: #123329;
-    margin: 0 auto;
-    color: #ffffff;
-}
-
-/*Inicio config radio*/
-/* Coloca as duas opções lado a lado na mesma linha */
-.grupo-documento {
-    display: flex;
-    flex-direction: row;
-    /* Garante o alinhamento horizontal */
-    flex-direction: column;
-}
-
-
-/* Alinha a bolinha verticalmente com o texto */
-.opcao-radio {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    cursor: pointer;
-}
-
-/*Fim config radio*/
-
-.btn-doar {
-    margin-top: 2rem;
-    padding: 2%;
-    border-radius: 2rem;
-}
-
-
-/*
-=====================================================
-        Fim configuração de estilo doar.html
-=====================================================
-*/
-
-/*
-=====================================================
     Inicio configuração de estilo doacao.html
 =====================================================
 */
@@ -885,7 +832,7 @@ display: inline-block;
     font-size: 13px;
     font-weight: bold;
     letter-spacing: 2px;
-    color: #FBD012;
+    color: #FBBF24;
 }
 
 .capa h1 {
@@ -895,7 +842,7 @@ display: inline-block;
 }
 
 .capa h1 strong {
-    color: #FBD012;
+    color: #FBBF24;
 }
 
 .capa p {
@@ -964,7 +911,7 @@ display: inline-block;
 /* ---------- DOAÇÃO ---------- */
 .secao-doacao {
     padding: 4rem 5%;
-    background-color: #123329;
+    background-color: #047857;
     color: #ffffff;
 }
 
@@ -999,7 +946,7 @@ display: inline-block;
     min-width: 35px;
     height: 35px;
     border-radius: 50%;
-    background: #FBD012;
+    background: #FBBF24;
     color: #123329;
     display: flex;
     align-items: center;
@@ -1188,7 +1135,7 @@ display: inline-block;
     padding: 14px 16px;
     border: none;
     border-radius: 2rem;
-    background: #cfda01;
+    background: #FBBF24;
     color: #000000;
     font-family: inherit;
     font-size: 1rem;
@@ -1198,7 +1145,7 @@ display: inline-block;
 }
 
 .botao-doar:hover {
-    background-color: #939b19;
+    background-color: #c6961d;
     color: #ffffff;
 }
 
