@@ -1187,6 +1187,83 @@ display: inline-block;
 =====================================================
 */
 
+.container-banner-projetos {
+    width: 100%;
+    min-height: 250px;
+    background-color: #3b8766; 
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.coluna-texto-img {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.texto-banner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem 4rem;
+    z-index: 2;
+    width: 50%; 
+    min-width: 300px;
+}
+
+.texto-banner h4, 
+.texto-banner h2 {
+    margin: 0.2rem 0;
+    white-space: normal;
+}
+
+.texto-banner h4 {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.texto-banner h2 {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.banner {
+    right: 0;
+    top: 0;
+    width: 65%; 
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+
+    -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%); 
+    mask-image: linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+}
+@media (max-width: 768px) {
+.container-banner-projetos {
+        height: auto;
+    }
+
+    .coluna-texto-img {
+        flex-direction: column; 
+    }
+
+    .texto-banner {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 20px;
+    }
+
+    .banner {
+        position: relative;
+        width: 100%;
+        height: 250px;
+        -webkit-mask-image: none;
+        mask-image: none;
+   
+    }
+}
 /*
 =====================================================
     Fim configuração de estilo Projetos.html
