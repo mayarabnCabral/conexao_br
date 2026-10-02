@@ -753,7 +753,7 @@ display: inline-block;
 
 .valores{
     flex: 1;
-    background-color: #E8E8E8;
+    background-color: #fffcfc;
     color: #123329;
     border-radius: 12px;
     padding: 1rem;
