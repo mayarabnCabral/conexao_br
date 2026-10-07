@@ -618,3 +618,211 @@ function iniciarDoacao() {
         }
     });
 }
+document.addEventListener("DOMContentLoaded", function () {
+
+    /* =========================
+       MENU MOBILE
+       (o CSS usa .show no menu e .open no botão)
+       ========================= */
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    function alternarMenu(abrir) {
+        navLinks.classList.toggle("show", abrir);
+        menuToggle.classList.toggle("open", abrir);
+        menuToggle.setAttribute("aria-expanded", String(abrir));
+        menuToggle.setAttribute("aria-label", abrir ? "Fechar menu de navegação" : "Abrir menu de navegação");
+    }
+
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener("click", function () {
+            alternarMenu(!navLinks.classList.contains("show"));
+        });
+        navLinks.addEventListener("click", function (e) {
+            if (e.target.closest("a")) alternarMenu(false);
+        });
+        document.addEventListener("keydown", function (e) {
+            if (e.key === "Escape") alternarMenu(false);
+        });
+        window.addEventListener("resize", function () {
+            if (window.innerWidth > 768) alternarMenu(false);
+        });
+    }
+
+    /* Se não estiver na página de inscrição, para aqui */
+    const formulario = document.getElementById("formularioInscricao");
+    if (!formulario) return;
+
+    /* =========================
+       ELEMENTOS
+       ========================= */
+    const botoesTipo = document.querySelectorAll(".tipo-card");
+    const tipoInscricao = document.getElementById("tipoInscricao");
+    const estado = document.getElementById("inscricaoEstado");
+    const resultado = document.getElementById("resultadoLocalizacao");
+    const mensagem = document.getElementById("mensagemInscricao");
+    const telefone = document.getElementById("inscricaoTelefone");
+    const nascimento = document.getElementById("inscricaoNascimento");
+    const confirmacao = document.getElementById("confirmacao");
+    const novaInscricao = document.getElementById("novaInscricao");
+    const cartoesUnidade = document.querySelectorAll(".sede-inscricao[data-uf]");
+
+    /* Unidades: lidas do próprio HTML (data-uf, data-nome, data-endereco),
+       então para adicionar uma sede basta editar a seção "Nossas unidades". */
+    const unidades = {};
+    cartoesUnidade.forEach(function (el) {
+        unidades[el.dataset.uf] = { nome: el.dataset.nome, endereco: el.dataset.endereco };
+    });
+
+    /* Cada tipo: texto do formulário, bloco exibido e campos obrigatórios */
+    const tipos = {
+        voluntario: {
+            titulo: "Seus dados de voluntário",
+            subtitulo: "Conte quem você é e como pode contribuir.",
+            bloco: document.getElementById("camposVoluntario"),
+            obrigatorios: ["areaVoluntario", "disponibilidadeVoluntario"]
+        },
+        ajuda: {
+            titulo: "Seus dados",
+            subtitulo: "Preencha os dados abaixo para que possamos entrar em contato.",
+            bloco: document.getElementById("camposAjuda"),
+            obrigatorios: ["necessidadeAjuda"]
+        }
+    };
+
+    /* Ninguém nasce no futuro */
+    nascimento.max = new Date().toISOString().split("T")[0];
+
+    /* =========================
+       ESCOLHER TIPO
+       ========================= */
+    function escolherTipo(tipo) {
+        tipoInscricao.value = tipo;
+        mensagem.textContent = "";
+        mensagem.className = "mensagem-inscricao";
+        confirmacao.classList.add("oculto");
+
+        botoesTipo.forEach(function (b) {
+            const ativo = b.dataset.tipoInscricao === tipo;
+            b.classList.toggle("ativo", ativo);
+            b.setAttribute("aria-pressed", String(ativo));
+        });
+
+        Object.keys(tipos).forEach(function (chave) {
+            const t = tipos[chave];
+            const ativo = chave === tipo;
+            t.bloco.classList.toggle("oculto", !ativo);
+            /* Só o tipo escolhido tem campos obrigatórios */
+            t.obrigatorios.forEach(function (id) {
+                document.getElementById(id).required = ativo;
+            });
+        });
+
+        document.getElementById("tituloFormulario").textContent = tipos[tipo].titulo;
+        document.getElementById("subtituloFormulario").textContent = tipos[tipo].subtitulo;
+
+        formulario.classList.remove("oculto");
+        formulario.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    botoesTipo.forEach(function (botao) {
+        botao.addEventListener("click", function () {
+            escolherTipo(botao.dataset.tipoInscricao);
+        });
+    });
+
+    /* =========================
+       MÁSCARA DO TELEFONE
+       ========================= */
+    telefone.addEventListener("input", function () {
+        const n = telefone.value.replace(/\D/g, "").slice(0, 11);
+        let v = n;
+        if (n.length > 10) v = n.replace(/^(\d{2})(\d{5})(\d{0,4}).*/, "($1) $2-$3");
+        else if (n.length > 6) v = n.replace(/^(\d{2})(\d{4})(\d{0,4}).*/, "($1) $2-$3");
+        else if (n.length > 2) v = n.replace(/^(\d{2})(\d{0,5})/, "($1) $2");
+        else if (n.length > 0) v = "(" + n;
+        telefone.value = v;
+    });
+
+    /* =========================
+       UNIDADE MAIS PRÓXIMA
+       ========================= */
+    function verificarLocalizacao() {
+        cartoesUnidade.forEach(function (el) {
+            el.classList.toggle("destaque", el.dataset.uf === estado.value);
+        });
+
+        if (!estado.value) {
+            resultado.classList.add("oculto");
+            return;
+        }
+
+        const unidade = unidades[estado.value];
+        resultado.classList.remove("oculto");
+
+        if (unidade) {
+            resultado.className = "resultado-localizacao sucesso";
+            resultado.innerHTML =
+                "<strong>Há uma unidade da Conexão BR no seu estado.</strong>" +
+                "<p>Unidade: <strong>" + unidade.nome + "</strong></p>" +
+                "<p>Endereço: " + unidade.endereco + "</p>";
+        } else {
+            resultado.className = "resultado-localizacao alerta";
+            resultado.innerHTML =
+                "<strong>Ainda não temos unidade neste estado.</strong>" +
+                "<p>Você pode enviar a inscrição mesmo assim: guardaremos seus dados e avisaremos quando chegarmos à sua região.</p>";
+        }
+    }
+    estado.addEventListener("change", verificarLocalizacao);
+
+    /* =========================
+       ENVIO
+       ========================= */
+    function mostrarMensagem(texto, tipo) {
+        mensagem.className = "mensagem-inscricao " + tipo;
+        mensagem.textContent = texto;
+    }
+
+    formulario.addEventListener("submit", function (event) {
+        event.preventDefault();
+        mostrarMensagem("", "");
+
+        if (!tipoInscricao.value) {
+            mostrarMensagem("Escolha uma das opções acima.", "erro");
+            return;
+        }
+
+        /* O navegador valida os campos obrigatórios e mostra o aviso no campo certo */
+        if (!formulario.checkValidity()) {
+            formulario.reportValidity();
+            return;
+        }
+
+        /* Dados prontos para enviar ao servidor (só os do tipo escolhido) */
+        const dados = Object.fromEntries(new FormData(formulario));
+        const outro = tipoInscricao.value === "voluntario" ? "ajuda" : "voluntario";
+        tipos[outro].bloco.querySelectorAll("[name]").forEach(function (c) { delete dados[c.name]; });
+        delete dados.undefined;
+
+        /* TODO: enviar `dados` para o seu back-end ou serviço de formulários, ex.:
+           fetch("/api/inscricao", { method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify(dados) }) */
+
+        formulario.reset();
+        tipoInscricao.value = "";
+        formulario.classList.add("oculto");
+        resultado.classList.add("oculto");
+        cartoesUnidade.forEach(function (el) { el.classList.remove("destaque"); });
+        botoesTipo.forEach(function (b) {
+            b.classList.remove("ativo");
+            b.setAttribute("aria-pressed", "false");
+        });
+
+        confirmacao.classList.remove("oculto");
+        confirmacao.focus();
+    });
+
+    novaInscricao.addEventListener("click", function () {
+        confirmacao.classList.add("oculto");
+        document.querySelector(".tipo-inscricao").scrollIntoView({ behavior: "smooth", block: "center" });
+    });
+});

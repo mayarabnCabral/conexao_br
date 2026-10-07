@@ -1,55 +1,110 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="midia/Logo_conexao_br_v2-removebg-preview.webp">
+    <link rel="icon" type="image/webp" href="midia/Logo_conexao_br_v2-removebg-preview.webp">
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
-    
-    <!-- Configuração de fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
-    <title>Conexão BR - Início</title>
+    <title>Conexão BR - Inscreva-se</title>
 </head>
-
 <body>
-    <!-- Início do cabeçalho -->
-    <header class="menu">
-        <nav class="nav-container" aria-label="Navegação principal">
-            <div class="logo-wrapper">
-                <a href="index.html">
-                    <img src="midia/logo_branco-removebg-preview.webp"
-                        alt="Logotipo circular da ONG Conexão BR nas cores verde, azul e amarelo. O emblema inclui três figuras humanas estilizadas e interligadas em círculo, um livro aberto com pássaros voando no topo, uma ponte, folhas e uma bússola com a bandeira do Brasil"
-                        class="logo-nav">
-                </a>
+<a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
+<header class="menu">
+    <nav class="nav-container" aria-label="Navegação principal">
+        <div class="logo-wrapper"><a href="index.html"><img src="midia/logo_branco-removebg-preview.webp" alt="Logotipo da ONG Conexão BR" class="logo-nav"></a></div>
+        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menu de navegação" aria-expanded="false"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Início</a></li><li><a href="sobre.html">Sobre Nós</a></li><li><a href="projetos.html">Projetos</a></li><li><a href="doacao.html">Doar</a></li><li><a href="inscrever.html" aria-current="page">Inscrever-se</a></li>
+        </ul>
+        <div class="links-nav" aria-label="Redes sociais do desenvolvedor"><a href="https://github.com/mayarabnCabral/conexao_br" target="_blank" rel="noopener noreferrer" aria-label="Perfil do GitHub"><i class="devicon-github-original" aria-hidden="true"></i></a></div>
+    </nav>
+</header>
+<main class="inscricao-main" id="conteudo">
+    <section class="inscricao-capa">
+        <div class="inscricao-capa-conteudo">
+            <span class="etiqueta">FAÇA PARTE DA CONEXÃO BR</span>
+            <h1>Juntos podemos transformar oportunidades.</h1>
+            <p>Escolha como você deseja participar: contribuindo como voluntário ou encontrando apoio para você e sua família.</p>
+        </div>
+    </section>
+
+    <section class="secao-inscricao">
+        <div class="card-inscricao">
+            <span class="etiqueta-secao">INSCREVA-SE</span>
+            <h2>Como podemos ajudar?</h2>
+            <p class="descricao-inscricao">Selecione uma opção para preencher seus dados. A localização informada será usada para indicar a unidade da Conexão BR mais próxima dentro dos estados onde já atuamos.</p>
+
+            <div class="tipo-inscricao" role="group" aria-label="Tipo de inscrição">
+                <button type="button" class="tipo-card" aria-pressed="false" aria-controls="formularioInscricao" data-tipo-inscricao="voluntario"><span class="tipo-icone" aria-hidden="true">🤝</span><span><strong>Quero ser voluntário</strong><small>Quero contribuir com meu tempo, conhecimentos e habilidades.</small></span></button>
+                <button type="button" class="tipo-card" aria-pressed="false" aria-controls="formularioInscricao" data-tipo-inscricao="ajuda"><span class="tipo-icone" aria-hidden="true">💚</span><span><strong>Preciso de ajuda</strong><small>Quero conhecer os projetos e oportunidades disponíveis.</small></span></button>
             </div>
 
-            <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menu de navegação" aria-expanded="false">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </button>
+            <form id="formularioInscricao" class="oculto" novalidate>
+                <input type="hidden" id="tipoInscricao" name="tipoInscricao">
+                <div class="inscricao-bloco">
+                    <h3 id="tituloFormulario">Seus dados</h3>
+                    <p id="subtituloFormulario">Preencha os dados abaixo para que possamos entrar em contato.</p>
+                    <div class="inscricao-grid">
+                        <div class="grupo-formulario"><label for="inscricaoNome">Nome completo *</label><input type="text" id="inscricaoNome" name="nome" autocomplete="name" placeholder="Digite seu nome completo" required></div>
+                        <div class="grupo-formulario"><label for="inscricaoEmail">E-mail *</label><input type="email" id="inscricaoEmail" name="email" autocomplete="email" placeholder="seuemail@exemplo.com" required></div>
+                        <div class="grupo-formulario"><label for="inscricaoTelefone">Telefone / WhatsApp *</label><input type="tel" inputmode="tel" id="inscricaoTelefone" name="telefone" autocomplete="tel" placeholder="(11) 99999-9999" required></div>
+                        <div class="grupo-formulario"><label for="inscricaoCidade">Cidade *</label><input type="text" id="inscricaoCidade" name="cidade" autocomplete="address-level2" placeholder="Ex.: São Paulo" required></div>
+                        <div class="grupo-formulario"><label for="inscricaoEstado">Estado *</label>
+                            <select id="inscricaoEstado" name="estado" required><option value="">Selecione seu estado</option><option value="AC">Acre</option><option value="AL">Alagoas</option><option value="AP">Amapá</option><option value="AM">Amazonas</option><option value="BA">Bahia</option><option value="CE">Ceará</option><option value="DF">Distrito Federal</option><option value="ES">Espírito Santo</option><option value="GO">Goiás</option><option value="MA">Maranhão</option><option value="MT">Mato Grosso</option><option value="MS">Mato Grosso do Sul</option><option value="MG">Minas Gerais</option><option value="PA">Pará</option><option value="PB">Paraíba</option><option value="PR">Paraná</option><option value="PE">Pernambuco</option><option value="PI">Piauí</option><option value="RJ">Rio de Janeiro</option><option value="RN">Rio Grande do Norte</option><option value="RS">Rio Grande do Sul</option><option value="RO">Rondônia</option><option value="RR">Roraima</option><option value="SC">Santa Catarina</option><option value="SP">São Paulo</option><option value="SE">Sergipe</option><option value="TO">Tocantins</option></select>
+                        </div>
+                        <div class="grupo-formulario"><label for="inscricaoNascimento">Data de nascimento *</label><input type="date" id="inscricaoNascimento" name="nascimento" required></div>
+                    </div>
+                </div>
 
-            <ul class="nav-links" id="navLinks">
-                                            <!--indica qual pagina o usuário está (Acessibilidade)-->
-                <li><a href="index.html" aria-current="page">Início</a></li>
-                <li><a href="sobre.html">Sobre Nós</a></li>
-                <li><a href="projetos.html">Projetos</a></li>
-                <li><a href="doacao.html">Doar</a></li>
-                <li><a href="inscrever.html">Inscrever-se</a></li>
-            </ul>
+                <div id="camposVoluntario" class="inscricao-bloco oculto">
+                    <h3>Sobre seu voluntariado</h3>
+                    <div class="inscricao-grid">
+                        <div class="grupo-formulario"><label for="areaVoluntario">Área em que deseja ajudar *</label><select id="areaVoluntario" name="areaVoluntario"><option value="">Selecione uma área</option><option>Educação e aulas</option><option>Integração cultural</option><option>Atendimento e acolhimento</option><option>Tecnologia</option><option>Comunicação e divulgação</option><option>Administrativo</option><option>Outra</option></select></div>
+                        <div class="grupo-formulario"><label for="disponibilidadeVoluntario">Disponibilidade *</label><select id="disponibilidadeVoluntario" name="disponibilidade"><option value="">Selecione</option><option>Durante a semana</option><option>Finais de semana</option><option>Manhã</option><option>Tarde</option><option>Noite</option><option>Horários flexíveis</option></select></div>
+                        <div class="grupo-formulario campo-largo"><label for="experienciaVoluntario">Conte um pouco sobre você</label><textarea id="experienciaVoluntario" name="experiencia" placeholder="Fale sobre suas experiências, conhecimentos ou como gostaria de contribuir."></textarea></div>
+                    </div>
+                </div>
 
-            <div class="links-nav" aria-label="Redes sociais do desenvolvedor">
-                <a href="https://github.com/mayarabnCabral/conexao_br" target="_blank" rel="noopener noreferrer" aria-label="Perfil do GitHub">
-                    <i class="devicon-github-original" aria-hidden="true"></i>
-                </a>
+                <div id="camposAjuda" class="inscricao-bloco oculto">
+                    <h3>Como podemos apoiar você?</h3>
+                    <div class="inscricao-grid">
+                        <div class="grupo-formulario"><label for="nacionalidadeAjuda">Nacionalidade</label><input type="text" id="nacionalidadeAjuda" name="nacionalidade" placeholder="Ex.: Brasileira, Venezuelana"></div>
+                        <div class="grupo-formulario"><label for="quantidadeAjuda">Quantas pessoas precisam de apoio?</label><input type="number" id="quantidadeAjuda" name="quantidade" min="1" max="20" placeholder="Ex.: 2"></div>
+                        <div class="grupo-formulario campo-largo"><label for="necessidadeAjuda">Qual é a sua principal necessidade? *</label><textarea id="necessidadeAjuda" name="necessidade" placeholder="Conte brevemente como a Conexão BR pode ajudar você."></textarea></div>
+                        <div class="grupo-formulario campo-largo"><label for="interesseAjuda">O que você gostaria de encontrar na Conexão BR?</label><textarea id="interesseAjuda" name="interesse" placeholder="Ex.: aulas de português, orientação, atividades de integração, cursos..."></textarea></div>
+                    </div>
+                </div>
+
+                <div id="resultadoLocalizacao" class="resultado-localizacao oculto" aria-live="polite"></div>
+                <label class="aceite-inscricao"><input type="checkbox" id="aceiteInscricao" required><span>Autorizo o uso destes dados exclusivamente para contato e encaminhamento da inscrição.</span></label>
+                <p id="mensagemInscricao" class="mensagem-inscricao" aria-live="polite"></p>
+                <button type="submit" class="botao-inscricao">Enviar inscrição</button>
+            </form>
+            <div id="confirmacao" class="confirmacao oculto" role="status" tabindex="-1">
+                <h3>Inscrição enviada!</h3>
+                <p>Nossa equipe entrará em contato pelos dados informados.</p>
+                <button type="button" id="novaInscricao" class="botao-secundario">Fazer outra inscrição</button>
             </div>
-        </nav>
-    </header>
-    <!-- Fim do cabeçalho -->
+        </div>
+    </section>
+
+    <section class="secao-sedes-inscricao">
+        <div class="conteudo-sedes-inscricao">
+            <span class="etiqueta-secao">ONDE ESTAMOS</span><h2>Nossas unidades</h2>
+            <p>Atualmente, a Conexão BR possui unidades em São Paulo, Recife, Manaus e Brasília.</p>
+            <div class="sedes-inscricao-grid">
+                <article class="sede-inscricao" data-uf="SP" data-nome="São Paulo" data-endereco="Rua Inventada, 555"><h3>São Paulo</h3><p>Matriz<br>Rua Inventada, 555</p></article>
+                <article class="sede-inscricao" data-uf="PE" data-nome="Recife - Pernambuco" data-endereco="Avenida Principal, 000"><h3>Recife</h3><p>Sede em Pernambuco<br>Avenida Principal, 000</p></article>
+                <article class="sede-inscricao" data-uf="AM" data-nome="Manaus - Amazonas" data-endereco="Rua Qualquer Nome, 1010"><h3>Manaus</h3><p>Sede em Manaus<br>Rua Qualquer Nome, 1010</p></article>
+                <article class="sede-inscricao" data-uf="DF" data-nome="Brasília - Distrito Federal" data-endereco="Rua das Palmeiras, 5432"><h3>Brasília</h3><p>Sede em Distrito Federal<br>Rua das Palmeiras, 5432</p></article>
+            </div>
+        </div>
+    </section>
+</main>
 </body>
 </html>
