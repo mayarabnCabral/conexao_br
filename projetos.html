@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="midia/Logo_conexao_br_v2-removebg-preview.webp">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+
+    <!-- Configuração de fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <title>Conexão BR</title>
+</head>
+
+<body>
+    <header class="menu">
+        <nav>
+            <img src="midia/logo_branco-removebg-preview.webp"
+                alt="Logotipo circular da ONG Conexão BR nas cores verde, azul e amarelo. O emblema inclui três figuras humanas estilizadas e interligadas em círculo, um livro aberto com pássaros voando no topo, uma ponte, folhas e uma bússola com a bandeira do Brasil"
+                class="logo">
+        </nav>
+        <ul class="links-nav">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="sobre.html">Sobre Nós</a></li>
+            <li><a href="projetos.html">Projetos</a></li>
+            <li><a href="doar.html">Doar</a></li>
+            <li><a href="inscrever.html">Inscreva-se</a></li>
+        </ul>
+        <div class="links-nav" aria-label="Repositorio do GitHub">
+            <a href="https://github.com/mayarabnCabral/conexao_br" target="_blank" rel="noopener noreferrer"
+                aria-label="Perfil do GitHub">
+                <i class="devicon-github-original" aria-hidden="true"></i>
+            </a>
+        </div>
+    </header>
+    <main>
+        <section class="container-banner-projetos">
+            <div class="coluna-texto-img">
+                <div class="texto-banner">
+                    <h4>Projetos</h4>
+                    <h2>Conheça nossos projetos</h2>
+                    <h4>Explore e conheça nossas iniciativas,promovemos educação, inclusão, divercidade e muito mais.
+                    </h4>
+                </div>
+                <img src="midia/planta.webp" class="banner" alt="Mão segurando uma muda de planta">
+            </div>
+        </section>
+        <section class="pesquisa">
+            <input type="search" placeholder="Digite o nome desejado">
+            <button class="btn-pesquisar">Pesquisar</button>
+
+            <p class="filtro-sede"><b>Sede:</b></p>
+            <select name="sede" id="sede" class="filtros">
+                <option value="todos" selected>Todos</option>
+                <option value="sp">São Paulo</option>
+                <option value="am">Manaus</option>
+                <option value="pe">Pernambuco</option>
+                <option value="df">Brasilia</option>
+            </select>
+
+
+            <p class="filtro-sede"><b>Área:</b></p>
+            <select name="area" id="area" class="filtros">
+                <option value="todos" selected>Todos</option>
+                <option value="linguagens">Educação Linguística e Alfabetização</option>
+                <option value="profissional">Qualificação Profissional e Empregabilidade</option>
+                <option value="reforco">Apoio Escolar e Reforço para Crianças e Jovens</option>
+                <option value="direito">Orientação Legal, Social e Cidadania</option>
+                <option value="cultura">Valorização Cultural e Integração Comunitária</option>
+            </select>
+
+            <p class="filtro-sede"><b>Publico-Alvo:</b></p>
+            <select name="publico" id="publico" class="filtros">
+                <option value="todos" selected>Todos</option>
+                <option value="criancas">Crianças</option>
+                <option value="jovens">Jovens</option>
+                <option value="Adultos">Adultos</option>
+                <option value="idosos">Idosos</option>
+            </select>
+
+            <p class="filtro-sede"><b>Formato:</b></p>
+            <select name="formato" id="formato" class="filtros">
+                <option value="todos" selected>Todos</option>
+                <option value="presencial">Presencial</option>
+                <option value="hibrido">Hibrido</option>
+                <option value="online">Online</option>
+            </select>
+
+            <p class="filtro-sede"><b>Status:</b></p>
+            <select name="status" id="status" class="filtros">
+                <option value="todos" selected>Todos</option>
+                <option value="abertas">Inscrições abertas</option>
+                <option value="hibrido">Em andamento</option>
+                <option value="online">Finalizados</option>
+            </select>
+        </section>
+        <section class="atividades">
+            <div class="img-sedes-grid">
+                <section>
+                    <p>
+                        <b>Portas Abertas: Português para Imigrantes</b><br>
+                        <b>Área: </b>Educação Linguística e Alfabetização<br>(linguagens)
+                        <b>Público-Alvo:</b> Adultos<br> (adultos)
+                        <b>Formato:</b> Híbrido<br> (hibrido)
+                        <b>Status:</b> Inscrições abertas<br>(abertas)
+                        <b>Descrição:</b> Curso de português básico focado no cotidiano, mercado de trabalho e
+                        conversação, voltado especialmente para refugiados recém-chegados ao país.<br>
+                        <b>Unidades: </b> Todas (sp)(am)(pe)(df)
+                        <a class="btn-projetos" href="projetos.html">Inscreva-se</a>
+                    </p>
+                </section>
+                <section>
+                    <p>
+                        <b>Semente do Saber: Reforço Escolar Comunitário</b><br>
+                        <b>Área: </b>Apoio Escolar e Reforço para Crianças e Jovens<br> (reforco)
+                        <b>Público-Alvo:</b> Crianças e jovens<br> (crianças) (jovens)
+                        <b>Formato:</b> Presencial<br> (presencial)
+                        <b>Status:</b> Inscrições abertas<br> (abertas)
+                        <b>Descrição:</b> Atividades de reforço em matemática e leitura no contraturno escolar para
+                        crianças em situação de vulnerabilidade social.<br>
+                        <b>Unidades: </b> Todas (sp)(am)(pe)(df)
+                        <a class="btn-projetos" href="projetos.html">Inscreva-se</a>
+                    </p>
+                </section>
+                <section>
+                    <p>
+                        <b>TechFuturo: Programação para Jovens</b><br>
+                        <b>Área: </b>Qualificação Profissional e Empregabilidade<br> (profissional)
+                        <b>Público-Alvo:</b>Jovens e adultos<br>(jovens) (adultos)
+                        <b>Formato:</b> Presencial<br> (presencial)
+                        <b>Status:</b> Inscrições abertas<br> (abertas)
+                        <b>Descrição:</b> Atividades de reforço em matemática e leitura no contraturno escolar para
+                        crianças em situação de vulnerabilidade social.<br>
+                        <b>Unidades: </b> São Paulo (sp)
+                        <a class="btn-projetos" href="projetos.html">Inscreva-se</a>
+                    </p>
+                </section>
+                <section>
+                    <p>
+                        <b>Cidadania sem Fronteiras</b><br>
+                        <b>Área: </b>Orientação Legal, Social e Cidadania<br> (reforco)
+                        <b>Público-Alvo:</b> Crianças e jovens<br>(crianças) (jovens)
+                        <b>Formato:</b> Online<br> (online)
+                        <b>Status:</b> Inscrições abertas<br> (abertas)
+                        <b>Descrição:</b> Atividades de reforço em matemática e leitura no contraturno escolar para
+                        crianças em situação de vulnerabilidade social.<br>
+                        <b>Unidades: </b> Todas (sp)(am)(pe)(df)
+                        <a class="btn-projetos" href="projetos.html">Inscreva-se</a>
+                    </p>
+                </section>
+                <section>
+                    <p>
+                        <b>Pontes Culturais: Artesanato e Integração</b><br>
+                        <b>Área: </b>Valorização Cultural e Integração Comunitária<br> (cultura)
+                        <b>Público-Alvo:</b> Idosos<br>(idosos)
+                        <b>Formato:</b> Presencial<br> (presencial)
+                        <b>Status:</b> Em andamento<br> (andamento)
+                        <b>Descrição:</b> Oficina de troca de saberes artesanais entre imigrantes (com forte presença
+                        indígena e latino-americana na região) e a comunidade local.<br>
+                        <b>Unidades: </b> Todas (sp)(am)(pe)(df)
+                        <a class="btn-projetos" href="projetos.html">Inscreva-se</a>
+                    </p>
+                </section>
+                <section>
+                    <p>
+                        <b>Alfabetiza Mais</b><br>
+                        <b>Área: </b>Educação Linguística e Alfabetização<br> (linguagens)
+                        <b>Público-Alvo: </b>Adultos e Idosos<br>(adultos)(idosos)
+                        <b>Formato: </b>Híbrido<br> (hibrido)
+                        <b>Status: </b>Inscrições abertas<br> (abertas)
+                        <b>Descrição: </b>Alfabetização de jovens e adultos que não tiveram acesso à educação formal na
+                        infância.<br>
+                        <b>Unidades: </b> Todas (sp)(am)(pe)(df)
+                        <a class="btn-projetos" href="projetos.html">Inscreva-se</a>
+                    </p>
+                </section>
+                <section>
+                    <p>
+                        <b>Jovem Empreendedor Social</b><br>
+                        <b>Área: </b>Qualificação Profissional e Empregabilidade<br> (profissional)
+                        <b>Público-Alvo: </b>Jovens<br>(jovens)
+                        <b>Formato: </b>Presencial<br> (presencial)
+                        <b>Status: </b>Inscrições abertas<br> (abertas)
+                        <b>Descrição: </b>ACapacitação em gestão financeira básica, marketing digital para pequenos
+                        negócios e elaboração de currículos.<br>
+                        <b>Unidades: </b> Todas (sp)(am)(pe)(df)
+                        <a class="btn-projetos" href="projetos.html">Inscreva-se</a>
+                    </p>
+                </section>
+        </section>
+    </main>
+    <footer>
+        <b>ONG fictícia, direitos reservados a Mayara, Luz e Bruno © 2026 Conexão BR - CNPJ: 00.000.000/0000-00 - Rua
+            Inventada, 555, São Paulo, SP - CEP: 00000-000</b>
+    </footer>
+</body>
+
+</html>

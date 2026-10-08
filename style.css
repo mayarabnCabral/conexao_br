@@ -1,0 +1,318 @@
+html,
+body {
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    font-size: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+footer {
+    background: linear-gradient(to right, #408a87, #429c63);
+    color: #fff;
+    text-align: center;
+    padding: 30px;
+    margin: auto;
+}
+
+/*
+=====================================================
+                    Inicio config Menu 
+=====================================================
+*/
+
+.menu {
+    display: flex;
+    align-items: center;
+    position: fixed;
+
+    background: linear-gradient(to right, #408a87, #429c63);
+    width: 100%;
+    height: 80px;
+    index: 1
+}
+
+.nav-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+
+.logo {
+    width: 70px;
+    margin-left: 70px;
+}
+
+.links-nav {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: auto;
+}
+
+.links-nav a {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.links-nav a:hover {
+    color: #FBD012;
+}
+
+.links-nav i {
+    margin: auto;
+}
+
+/*
+=====================================================
+                    Fim config Menu 
+=====================================================
+*/
+
+
+/*
+=====================================================
+                    Inicio config Index.html
+=====================================================
+*/
+
+.imagem-index {
+    display: flex;
+    justify-content: center;
+    width: 1000px;
+    margin: 70px auto;
+}
+
+.resumo {
+    align-items: center;
+    text-align: center;
+    padding: 40px;
+    background-color: #d7d6d6;
+}
+
+.container-grid-index {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 30px 70px;
+    gap: 200px;
+}
+
+.container-grid p {
+    color: #fff;
+}
+
+.centralizar {
+    text-align: center;
+}
+
+footer h4 {
+    color: #FBD012;
+}
+
+.btn-acao {
+    display: flex;
+    justify-content: center;
+    padding: 15px 25px;
+    background-color: #FBD012;
+    border-radius: 50px;
+    margin-top: 20px;
+}
+
+
+/*
+=====================================================
+                    Fim config Index.html 
+=====================================================
+*/
+
+/*
+=====================================================
+                    Inicio config Sobre.html 
+=====================================================
+*/
+
+.texto-sobre-grid {
+    background-color: #41976D;
+    color: #fff;
+    padding: 9px 30px;
+}
+
+.texto-sobre-grid h1 {
+    text-align: center;
+}
+
+.texto-sobre-grid p {
+    text-align: start;
+    font-size: 21px;
+}
+
+.container-grid-sobre {
+    margin: 70px auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: stretch;
+}
+
+.img-sobre {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.titulo-sobre {
+    color: #41976D;
+}
+
+.espaco-sobre {
+    gap: 200px;
+    padding: 30px 70px;
+}
+
+.valores-sobre {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 30px 70px;
+    background-color: #ffffff;
+}
+
+.img-sedes-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 400px;
+    align-items: start;
+    padding: 20px 150px 150px ;
+}
+
+.img-sedes {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.espacamento-img {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 20px;
+    align-items: center;
+}
+
+.btn-projetos {
+    display: flex;
+    justify-content: center;
+    padding: 15px 25px;
+    background-color: #41976D;
+    border-radius: 50px;
+    margin-top: 20px;
+
+}
+
+.btn-projetos:hover {
+    background-color: #23523b;
+}
+
+
+/*
+=====================================================
+                    Fim config Sobre.html 
+=====================================================
+*/
+
+
+/*
+=====================================================
+                    Inicio config Projetos.html 
+=====================================================
+*/
+
+.container-banner-projetos {
+    width: 100%;
+    min-height: 250px;
+    background-color: #3b8766; 
+}
+
+.coluna-texto-img {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.texto-banner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 40px;
+    width: 50%; 
+    min-width: 300px;
+    color: #fff;
+}
+
+.pesquisa{
+    display: flex;
+    padding: 50px;
+}
+
+.pesquisa input{
+    width: 300px; 
+    padding: 10px 15px;
+    text-align: left; 
+    border: none;
+    background-color: #3b8766;
+    border-radius: 20px 0 0 20px;
+}
+.pesquisa input::placeholder{
+    color: rgb(255, 255, 255);
+    opacity: 1; 
+    font-weight: bold;
+    font-size: 15px;
+}
+.btn-pesquisar{
+    border: none;
+    background-color: #FBD012;
+    padding: 10px 15px;
+    border-radius: 0 20px 20px 0;
+}
+
+.filtros{
+     background-color: #3b8766;
+     margin: 0 10px ;
+     padding: 10px;
+     color: #fff;
+     border-radius: 20px 20px 0 0;
+     text-align: center;
+}
+.filtros option{
+    background-color: #fff;
+    color: black;
+    
+}
+.filtro-sede{
+    padding-left: 70px;
+    font-size: 15px;
+}
+
+.atividades{
+    background-color: #bebfbf;
+    padding-top: 50px;
+}
+/*
+=====================================================
+                    Fim config Projetos.html 
+=====================================================
+*/
