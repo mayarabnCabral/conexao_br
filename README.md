@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # 🤝 Conexão Brasil
 
 Plataforma web desenvolvida para uma ONG fictícia dedicada à inclusão social e educacional de migrantes, refugiados e pessoas de baixa renda no Brasil.
