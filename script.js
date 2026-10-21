@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
     iniciarMenu();       // index, sobre, inscrever
     iniciarCarrossel();  // index
     iniciarDoacao();     // doacao
+    iniciarFiltrosProjetos(); // projetos
 });
 
 
@@ -618,6 +619,7 @@ function iniciarDoacao() {
         }
     });
 }
+<<<<<<< HEAD
 document.addEventListener("DOMContentLoaded", function () {
 
     /* =========================
@@ -826,3 +828,150 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelector(".tipo-inscricao").scrollIntoView({ behavior: "smooth", block: "center" });
     });
 });
+=======
+
+// ==========================================================
+// PROJETOS: pesquisa + filtros (só roda em projetos.html)
+//
+// Regras:
+//  - Dentro de uma categoria (ex.: Sede) vale "OU": SP ou AM.
+//  - Entre categorias vale "E": Sede E Área E Público...
+//  - Nenhuma opção marcada = sem filtro naquela categoria.
+//  - Todas as opções marcadas = também sem filtro (equivale a "Todos").
+//  - Card com data-sede="todas" aparece para qualquer sede escolhida.
+//
+// Cada informação do card carrega o próprio valor em data-filtro
+// (a categoria) e data-valor (a opção), por exemplo:
+//   <span class="tag" data-filtro="formato" data-valor="online">Online</span>
+//   <p class="area" data-filtro="area" data-valor="profissional">...</p>
+//   <span class="status ..." data-filtro="status" data-valor="abertas">...</span>
+// data-filtro = name do checkbox | data-valor = value do checkbox.
+// ==========================================================
+
+function iniciarFiltrosProjetos() {
+    const inputPesquisa = document.querySelector(".busca-container input");
+    const botaoPesquisar = document.querySelector(".btn-pesquisar");
+    const cards = document.querySelectorAll(".card-projeto");
+    const checkboxes = document.querySelectorAll('.filtros-wrapper input[type="checkbox"]');
+    const msgVazio = document.getElementById("semResultados");
+
+    if (!inputPesquisa || cards.length === 0) return; // página sem projetos
+
+    // minúsculas, sem acento e sem espaços repetidos ("Híbrido" -> "hibrido")
+    function normalizar(texto) {
+        return texto
+            .toLowerCase()
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .replace(/\s+/g, " ")
+            .trim();
+    }
+
+    // Guarda o texto de cada card uma única vez (usado na pesquisa)
+    const textoDosCards = new Map();
+    cards.forEach(function (card) {
+        textoDosCards.set(card, normalizar(card.textContent));
+    });
+
+    // Lê, uma única vez, os valores que cada card declara nas suas tags:
+    // { sede: ["todas"], publico: ["jovens","adultos"], formato: ["presencial"], ... }
+    const valoresDosCards = new Map();
+    cards.forEach(function (card) {
+        const valores = {};
+
+        card.querySelectorAll("[data-filtro]").forEach(function (el) {
+            const categoria = el.dataset.filtro;
+            if (!valores[categoria]) valores[categoria] = [];
+            valores[categoria].push(el.dataset.valor);
+        });
+
+        valoresDosCards.set(card, valores);
+    });
+
+    const categorias = Array.from(new Set(Array.from(checkboxes).map(function (cb) {
+        return cb.name;
+    })));
+
+    // Devolve só as categorias que realmente restringem o resultado
+    function lerFiltrosAtivos() {
+        const ativos = {};
+
+        categorias.forEach(function (categoria) {
+            const todos = Array.from(
+                document.querySelectorAll('.filtros-wrapper input[name="' + categoria + '"]')
+            );
+            const marcados = todos
+                .filter(function (cb) { return cb.checked; })
+                .map(function (cb) { return cb.value; });
+
+            // nada marcado ou tudo marcado = "Todos"
+            if (marcados.length > 0 && marcados.length < todos.length) {
+                ativos[categoria] = marcados;
+            }
+        });
+
+        return ativos;
+    }
+
+    function cardAtendeFiltros(card, ativos) {
+        for (const categoria in ativos) {
+            const valoresDoCard = valoresDosCards.get(card)[categoria] || [];
+
+            // "Todas as Unidades" aparece em qualquer sede escolhida
+            if (categoria === "sede" && valoresDoCard.includes("todas")) continue;
+
+            const achou = ativos[categoria].some(function (valor) {
+                return valoresDoCard.includes(valor);
+            });
+
+            if (!achou) return false;
+        }
+        return true;
+    }
+
+    // Atualiza o texto "Todos" do botão de cada dropdown
+    function atualizarRotulos() {
+        document.querySelectorAll(".dropdown-filtro").forEach(function (dropdown) {
+            const rotulo = dropdown.querySelector(".filtro-botao-select span");
+            if (!rotulo) return;
+
+            const todos = dropdown.querySelectorAll('input[type="checkbox"]');
+            const marcados = dropdown.querySelectorAll('input[type="checkbox"]:checked');
+
+            if (marcados.length === 0 || marcados.length === todos.length) {
+                rotulo.textContent = "Todos";
+            } else if (marcados.length === 1) {
+                rotulo.textContent = marcados[0].parentElement.textContent.trim();
+            } else {
+                rotulo.textContent = marcados.length + " selecionados";
+            }
+        });
+    }
+
+    function filtrarProjetos() {
+        const termo = normalizar(inputPesquisa.value);
+        const ativos = lerFiltrosAtivos();
+        let visiveis = 0;
+
+        cards.forEach(function (card) {
+            const atendeBusca = termo === "" || textoDosCards.get(card).includes(termo);
+            const atendeFiltros = cardAtendeFiltros(card, ativos);
+            const mostrar = atendeBusca && atendeFiltros;
+
+            card.style.display = mostrar ? "" : "none";
+            if (mostrar) visiveis++;
+        });
+
+        if (msgVazio) msgVazio.hidden = visiveis > 0;
+        atualizarRotulos();
+    }
+
+    inputPesquisa.addEventListener("input", filtrarProjetos);
+    botaoPesquisar.addEventListener("click", filtrarProjetos);
+    checkboxes.forEach(function (cb) {
+        cb.addEventListener("change", filtrarProjetos);
+    });
+
+    filtrarProjetos();
+}
+>>>>>>> 56e7d13 (Finalizando projetos e tornando filtros funcionais)
