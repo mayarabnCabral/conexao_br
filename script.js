@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
     iniciarCarrossel();  // index
     iniciarDoacao();     // doacao
     iniciarFiltrosProjetos(); // projetos
+    iniciarInscricao();  // inscrever
 });
 
 
@@ -619,38 +620,12 @@ function iniciarDoacao() {
         }
     });
 }
-<<<<<<< HEAD
-document.addEventListener("DOMContentLoaded", function () {
 
-    /* =========================
-       MENU MOBILE
-       (o CSS usa .show no menu e .open no botão)
-       ========================= */
-    const menuToggle = document.getElementById("menuToggle");
-    const navLinks = document.getElementById("navLinks");
+// ==========================================================
+// INSCRIÇÃO (só roda em inscrever.html)
+// ==========================================================
 
-    function alternarMenu(abrir) {
-        navLinks.classList.toggle("show", abrir);
-        menuToggle.classList.toggle("open", abrir);
-        menuToggle.setAttribute("aria-expanded", String(abrir));
-        menuToggle.setAttribute("aria-label", abrir ? "Fechar menu de navegação" : "Abrir menu de navegação");
-    }
-
-    if (menuToggle && navLinks) {
-        menuToggle.addEventListener("click", function () {
-            alternarMenu(!navLinks.classList.contains("show"));
-        });
-        navLinks.addEventListener("click", function (e) {
-            if (e.target.closest("a")) alternarMenu(false);
-        });
-        document.addEventListener("keydown", function (e) {
-            if (e.key === "Escape") alternarMenu(false);
-        });
-        window.addEventListener("resize", function () {
-            if (window.innerWidth > 768) alternarMenu(false);
-        });
-    }
-
+function iniciarInscricao() {
     /* Se não estiver na página de inscrição, para aqui */
     const formulario = document.getElementById("formularioInscricao");
     if (!formulario) return;
@@ -827,8 +802,8 @@ document.addEventListener("DOMContentLoaded", function () {
         confirmacao.classList.add("oculto");
         document.querySelector(".tipo-inscricao").scrollIntoView({ behavior: "smooth", block: "center" });
     });
-});
-=======
+}
+
 
 // ==========================================================
 // PROJETOS: pesquisa + filtros (só roda em projetos.html)
@@ -974,4 +949,3 @@ function iniciarFiltrosProjetos() {
 
     filtrarProjetos();
 }
->>>>>>> 56e7d13 (Finalizando projetos e tornando filtros funcionais)
