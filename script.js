@@ -779,7 +779,6 @@ function iniciarInscricao() {
         const dados = Object.fromEntries(new FormData(formulario));
         const outro = tipoInscricao.value === "voluntario" ? "ajuda" : "voluntario";
         tipos[outro].bloco.querySelectorAll("[name]").forEach(function (c) { delete dados[c.name]; });
-        delete dados.undefined;
 
         /* TODO: enviar `dados` para o seu back-end ou serviço de formulários, ex.:
            fetch("/api/inscricao", { method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify(dados) }) */
@@ -946,6 +945,15 @@ function iniciarFiltrosProjetos() {
     checkboxes.forEach(function (cb) {
         cb.addEventListener("change", filtrarProjetos);
     });
+
+    // Vindo de sobre.html (?sede=sp): já marca a sede escolhida
+    const sedeNaUrl = new URLSearchParams(window.location.search).get("sede");
+    if (sedeNaUrl) {
+        const checkboxSede = document.querySelector(
+            '.filtros-wrapper input[name="sede"][value="' + sedeNaUrl.toLowerCase() + '"]'
+        );
+        if (checkboxSede) checkboxSede.checked = true;
+    }
 
     filtrarProjetos();
 }

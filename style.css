@@ -44,7 +44,18 @@ select option {
     padding-left: 100rem;
 }
 
+footer {
+    background: linear-gradient(to right, #408a87, #429c63);
+    color: #fff;
+    text-align: center;
+    padding: 30px;
+    margin: auto;
+}
 
+footer p {
+    margin: 0;
+    font-size: 16px;
+}
 
 hr {
 
@@ -228,8 +239,6 @@ hr {
                     Fim config Menu 
 =====================================================
 */
-
-/*
 
 /*
 =====================================================
@@ -1579,5 +1588,461 @@ hr {
 /*
 =====================================================
     Fim configuração de estilo Projetos.html
+=====================================================
+*/
+
+/*
+=====================================================
+    Inicio configuração de estilo inscrever.html
+    (reaproveita .etiqueta, .grupo-formulario, .oculto
+     e a paleta de doacao.html)
+=====================================================
+*/
+
+/* ---------- ACESSIBILIDADE: link "Pular para o conteúdo" ---------- */
+.pular-conteudo {
+    position: absolute;
+    top: -100px;
+    left: 16px;
+    z-index: 2000;
+    padding: 10px 18px;
+    border-radius: 2rem;
+    background: #FBBF24;
+    color: #000000;
+    font-weight: 600;
+    text-decoration: none;
+    transition: top 0.2s ease;
+}
+
+.pular-conteudo:focus {
+    top: 12px;
+}
+
+/* ---------- CAPA (mesmo padrão da capa de doacao.html) ---------- */
+.inscricao-capa {
+    min-height: 380px;
+    display: flex;
+    align-items: center;
+    background:
+        linear-gradient(90deg, rgba(18, 51, 41, 0.92), rgba(64, 138, 135, 0.55), rgba(18, 51, 41, 0.2)),
+        url("midia/sala_de_aula.webp");
+    background-size: cover;
+    background-position: center;
+}
+
+.inscricao-capa-conteudo {
+    max-width: 650px;
+    margin-left: 9%;
+    padding: 20px 0;
+    color: #ffffff;
+}
+
+.inscricao-capa h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.1;
+    margin: 16px 0;
+}
+
+.inscricao-capa p {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    line-height: 1.6;
+    max-width: 560px;
+    margin: 0;
+}
+
+/* ---------- SEÇÃO + CARD PRINCIPAL ---------- */
+.secao-inscricao {
+    padding: 4rem 5%;
+    background-color: #E8E8E8;
+}
+
+.card-inscricao {
+    max-width: 850px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 2.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    color: #123329;
+}
+
+.card-inscricao .etiqueta-secao {
+    color: #408a87;
+}
+
+.card-inscricao h2 {
+    font-size: 2rem;
+    margin: 12px 0;
+}
+
+.descricao-inscricao {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 1.8rem;
+}
+
+/* ---------- ESCOLHA DO TIPO (voluntário / ajuda) ---------- */
+.tipo-inscricao {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.tipo-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 1.2rem;
+    border: 2px solid #ccd5d2;
+    border-radius: 12px;
+    background: #ffffff;
+    color: #123329;
+    font-family: inherit;
+    font-size: 1rem;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.tipo-card:hover {
+    background: #eef5f1;
+}
+
+.tipo-card.ativo,
+.tipo-card[aria-pressed="true"] {
+    border-color: #429c63;
+    background: #e3f1ea;
+}
+
+.tipo-icone {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #e3f1ea;
+    font-size: 23px;
+}
+
+.tipo-card.ativo .tipo-icone,
+.tipo-card[aria-pressed="true"] .tipo-icone {
+    background: #ffffff;
+}
+
+.tipo-card strong {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 1.05rem;
+}
+
+.tipo-card small {
+    display: block;
+    color: #6b7773;
+    line-height: 1.5;
+}
+
+/* ---------- FORMULÁRIO ---------- */
+#formularioInscricao {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #ddd;
+}
+
+.inscricao-bloco {
+    margin-bottom: 1.5rem;
+    padding: 1.4rem;
+    border-radius: 12px;
+    background: #f3f6f5;
+}
+
+.inscricao-bloco h3 {
+    margin: 0 0 6px;
+}
+
+.inscricao-bloco>p {
+    margin: 0 0 1.4rem;
+    color: #5c6a65;
+    line-height: 1.5;
+}
+
+.inscricao-bloco>h3+.inscricao-grid {
+    margin-top: 1.4rem;
+}
+
+.inscricao-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.inscricao-grid .grupo-formulario {
+    min-width: 0;
+    margin-bottom: 0;
+}
+
+.inscricao-grid .campo-largo {
+    grid-column: 1 / -1;
+}
+
+/* Campos que o doacao.html ainda não estilizava (email, data, número, select, textarea) */
+.grupo-formulario input[type="email"],
+.grupo-formulario input[type="date"],
+.grupo-formulario input[type="number"],
+.grupo-formulario select,
+.grupo-formulario textarea {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px;
+    border: 1px solid #ccd5d2;
+    border-radius: 0.5rem;
+    background: #ffffff;
+    color: #123329;
+    font-family: inherit;
+    font-size: 1rem;
+    outline: none;
+}
+
+/* Anula o padding-left global do ::placeholder, que deslocava o texto */
+.grupo-formulario ::placeholder {
+    padding-left: 0;
+}
+
+.grupo-formulario textarea {
+    min-height: 110px;
+    resize: vertical;
+    line-height: 1.5;
+}
+
+.grupo-formulario select {
+    cursor: pointer;
+}
+
+.grupo-formulario select:focus,
+.grupo-formulario textarea:focus {
+    border-color: #429c63;
+    box-shadow: 0 0 0 3px rgba(66, 156, 99, 0.2);
+}
+
+/* ---------- RESULTADO DA LOCALIZAÇÃO ---------- */
+.resultado-localizacao {
+    margin-bottom: 1.5rem;
+    padding: 1.1rem 1.3rem;
+    border-radius: 12px;
+    border-left: 5px solid #408a87;
+    background: #f3f6f5;
+    color: #123329;
+    line-height: 1.5;
+}
+
+.resultado-localizacao p {
+    margin: 6px 0 0;
+}
+
+.resultado-localizacao.sucesso {
+    border-left-color: #429c63;
+    background: #e3f1ea;
+}
+
+.resultado-localizacao.alerta {
+    border-left-color: #FBBF24;
+    background: #fff6dc;
+}
+
+/* ---------- ACEITE, MENSAGEM E BOTÕES ---------- */
+.aceite-inscricao {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 0;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    font-weight: normal;
+    line-height: 1.5;
+    cursor: pointer;
+}
+
+.aceite-inscricao input {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    margin: 2px 0 0;
+    accent-color: #429c63;
+    cursor: pointer;
+}
+
+.mensagem-inscricao {
+    margin: 0 0 1rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+.mensagem-inscricao:empty {
+    display: none;
+}
+
+.mensagem-inscricao.erro {
+    color: #b3261e;
+}
+
+.botao-inscricao,
+.botao-secundario {
+    width: 100%;
+    padding: 14px 16px;
+    border: none;
+    border-radius: 2rem;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.botao-inscricao {
+    background: #FBBF24;
+    color: #000000;
+}
+
+.botao-inscricao:hover {
+    background-color: #c6961d;
+    color: #ffffff;
+}
+
+.botao-secundario {
+    width: auto;
+    padding: 12px 28px;
+    background: #41976d;
+    color: #ffffff;
+}
+
+.botao-secundario:hover {
+    background-color: #2d6a4d;
+}
+
+/* ---------- CONFIRMAÇÃO ---------- */
+.confirmacao {
+    margin-top: 2rem;
+    padding: 2rem;
+    border-radius: 12px;
+    border-top: 5px solid #047857;
+    background: #e3f1ea;
+    text-align: center;
+}
+
+.confirmacao h3 {
+    margin: 0 0 8px;
+    font-size: 1.5rem;
+    color: #047857;
+}
+
+.confirmacao p {
+    margin: 0 0 1.4rem;
+    line-height: 1.6;
+}
+
+.confirmacao:focus {
+    outline: none;
+}
+
+/* ---------- NOSSAS UNIDADES (mesmo padrão de secao-doacao) ---------- */
+.secao-sedes-inscricao {
+    padding: 4rem 5%;
+    background-color: #047857;
+    color: #ffffff;
+}
+
+.conteudo-sedes-inscricao {
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+.conteudo-sedes-inscricao h2 {
+    font-size: clamp(2rem, 4vw, 2.6rem);
+    margin: 12px 0 18px;
+}
+
+.conteudo-sedes-inscricao>p {
+    max-width: 640px;
+    margin: 0 0 2rem;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #d5e3de;
+}
+
+.sedes-inscricao-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+}
+
+.sede-inscricao {
+    padding: 1.4rem;
+    border-radius: 12px;
+    border-top: 5px solid transparent;
+    background: rgba(255, 255, 255, 0.1);
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.sede-inscricao h3 {
+    margin: 0 0 8px;
+    font-size: 1.3rem;
+}
+
+.sede-inscricao p {
+    margin: 0;
+    line-height: 1.6;
+    color: #d5e3de;
+}
+
+/* Aplicada pelo script quando o estado escolhido tem unidade */
+.sede-inscricao.destaque {
+    border-top-color: #FBBF24;
+    background: #ffffff;
+    color: #123329;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.sede-inscricao.destaque h3 {
+    color: #047857;
+}
+
+.sede-inscricao.destaque p {
+    color: #123329;
+}
+
+/* ---------- FOCO VISÍVEL (teclado) ---------- */
+.tipo-card:focus-visible,
+.botao-inscricao:focus-visible,
+.botao-secundario:focus-visible,
+.aceite-inscricao input:focus-visible {
+    outline: 3px solid #FBBF24;
+    outline-offset: 2px;
+}
+
+/* ---------- RESPONSIVO ---------- */
+@media (max-width: 800px) {
+    .inscricao-capa-conteudo {
+        margin: 0 8%;
+    }
+
+    .card-inscricao {
+        padding: 1.5rem;
+    }
+
+    .tipo-inscricao,
+    .inscricao-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .botao-secundario {
+        width: 100%;
+    }
+}
+
+/*
+=====================================================
+    Fim configuração de estilo inscrever.html
 =====================================================
 */
