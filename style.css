@@ -1912,7 +1912,7 @@ hr {
 
 .botao-secundario {
     width: auto;
-    padding: 12px 28px;
+    padding: 12px 20px;
     background: #41976d;
     color: #ffffff;
 }
@@ -2044,5 +2044,113 @@ hr {
 /*
 =====================================================
     Fim configuração de estilo inscrever.html
+=====================================================
+*/
+
+/*
+=====================================================
+    POP-UP DE AGRADECIMENTO (doacao.html)
+=====================================================
+*/
+
+/* Fundo escuro que cobre a tela inteira */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background: rgba(18, 51, 41, 0.65);
+    animation: popup-fundo 0.25s ease;
+}
+
+.popup.oculto {
+    display: none;
+}
+
+.popup-caixa {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    padding: 2rem 1.5rem 1.5rem;
+    background: #ffffff;
+    border-top: 6px solid #429c63;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    animation: popup-subir 0.3s ease;
+}
+
+.popup-x {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    border: none;
+    background: transparent;
+    color: #6b7773;
+    font-size: 1.8rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.popup-x:hover {
+    color: #123329;
+}
+
+/* Coração verde no topo */
+.popup-icone {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #e3f1ea;
+    color: #429c63;
+    font-size: 2rem;
+}
+
+.popup-caixa h2 {
+    margin: 0 0 0.5rem;
+    color: #123329;
+    font-size: 1.6rem;
+}
+
+.popup-caixa p {
+    margin: 0 0 1.25rem;
+    color: #5c6a65;
+    line-height: 1.5;
+}
+
+.popup-codigo {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: #e3f1ea;
+    border: 2px dashed #429c63;
+    border-radius: 12px;
+}
+
+.popup-codigo span {
+    display: block;
+    margin-bottom: 4px;
+    color: #5c6a65;
+    font-size: 0.9rem;
+}
+
+.popup-codigo strong {
+    color: #123329;
+    font-size: 2rem;
+    letter-spacing: 6px;
+}
+
+/*
+=====================================================
+    Fim configuração do pop-up
 =====================================================
 */

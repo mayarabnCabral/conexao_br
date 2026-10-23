@@ -231,13 +231,6 @@
 
                 <form id="formularioDoacao">
                     <div class="grupo-formulario">
-                        <label for="codigo">Código da doação</label>
-                        <input type="text" id="codigo" name="codigo" inputmode="numeric" maxlength="6"
-                            pattern="[0-9]{6}" placeholder="Ex.: 123456" required>
-                        <small>Digite exatamente 6 números.</small>
-                    </div>
-
-                    <div class="grupo-formulario">
                         <label for="valor">Valor da doação</label>
                         <div class="input-valor">
                             <span>R$</span>
@@ -299,6 +292,25 @@
         <footer>
         <p><b>ONG fictícia, direitos reservados a Mayara, Luz e Bruno © 2026 Conexão BR - CNPJ: 00.000.000/0000-00 - Rua Inventada, 555, São Paulo, SP - CEP: 00000-000</b></p>
     </footer>
+
+
+    <!-- POP-UP DE AGRADECIMENTO (aparece depois de confirmar a doação) -->
+    <div id="popup" class="popup oculto" role="dialog" aria-modal="true" aria-labelledby="popupTitulo">
+        <div class="popup-caixa">
+            <button type="button" id="popupFechar" class="popup-x" aria-label="Fechar">×</button>
+
+            <div class="popup-icone">♥</div>
+            <h2 id="popupTitulo">Muito obrigado!</h2>
+            <p id="popupTexto"></p>
+
+            <div class="popup-codigo">
+                <span>Código da sua doação</span>
+                <strong id="popupCodigo">000000</strong>
+            </div>
+
+            <button type="button" id="popupOk" class="botao-doar">Fechar</button>
+        </div>
+    </div>
 
 </body>
 </html>

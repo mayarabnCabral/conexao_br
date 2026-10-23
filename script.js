@@ -145,9 +145,13 @@ function iniciarDoacao() {
     const form = document.getElementById("formularioDoacao");
     if (!form) return; // página sem formulário de doação
 
+    // Enquanto o back-end (POST /doacao) não existe, "true" simula o envio
+    // com sucesso para a mensagem de agradecimento poder ser testada.
+    // Quando o servidor estiver pronto, troque para false.
+    const MODO_DEMONSTRACAO = true;
+
     // ---------- Elementos ----------
 
-    const codigoInput = document.getElementById("codigo");
     const valorInput = document.getElementById("valor");
     const resumoValor = document.getElementById("resumoValor");
     const resumoPagamento = document.getElementById("resumoPagamento");
@@ -485,11 +489,13 @@ function iniciarDoacao() {
     });
 
 
-    // ---------- Código: somente números ----------
+    // ---------- Código da doação: gerado automaticamente ----------
 
-    codigoInput.addEventListener("input", function () {
-        this.value = this.value.replace(/\D/g, "").substring(0, 6);
-    });
+    // 6 dígitos aleatórios (ex.: "048213"), criados só ao finalizar a doação
+    function gerarCodigoDoacao() {
+        const numero = crypto.getRandomValues(new Uint32Array(1))[0] % 1000000;
+        return String(numero).padStart(6, "0");
+    }
 
 
     // ---------- Valor: conversão e formatação ----------
@@ -536,6 +542,49 @@ function iniciarDoacao() {
     });
 
 
+    // ---------- Pop-up de agradecimento ----------
+
+    const popup = document.getElementById("popup");
+    const popupTitulo = document.getElementById("popupTitulo");
+    const popupTexto = document.getElementById("popupTexto");
+    const popupCodigo = document.getElementById("popupCodigo");
+
+    function abrirPopup(valor, codigo) {
+        // Nome para o agradecimento (vazio quando a doação é anônima)
+        let nome = "";
+
+        if (dadosDoador) {
+            nome = dadosDoador.tipo === "empresa"
+                ? dadosDoador.nomeEmpresa
+                : dadosDoador.nome.split(" ")[0]; // só o primeiro nome
+        }
+
+        popupTitulo.textContent = nome ? "Obrigado, " + nome + "!" : "Muito obrigado!";
+        popupTexto.textContent = "Sua doação de " + formatarMoeda(valor) +
+            " foi registrada e vai ajudar imigrantes e refugiados a se integrarem ao Brasil.";
+        popupCodigo.textContent = codigo;
+
+        popup.classList.remove("oculto");
+        document.getElementById("popupOk").focus();
+    }
+
+    function fecharPopup() {
+        popup.classList.add("oculto");
+    }
+
+    // Fecha pelo X, pelo botão, clicando fora da caixa ou com ESC
+    document.getElementById("popupFechar").addEventListener("click", fecharPopup);
+    document.getElementById("popupOk").addEventListener("click", fecharPopup);
+
+    popup.addEventListener("click", function (event) {
+        if (event.target === popup) fecharPopup();
+    });
+
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") fecharPopup();
+    });
+
+
     // ---------- Envio ----------
 
     form.addEventListener("submit", async function (event) {
@@ -551,14 +600,6 @@ function iniciarDoacao() {
                 behavior: "smooth",
                 block: "start"
             });
-            return;
-        }
-
-        // Código
-        const codigo = codigoInput.value;
-
-        if (!/^\d{6}$/.test(codigo)) {
-            mostrarMensagem("O código deve possuir exatamente 6 números.", "red");
             return;
         }
 
@@ -585,6 +626,9 @@ function iniciarDoacao() {
             return;
         }
 
+        // Código gerado automaticamente ao finalizar a doação
+        const codigo = gerarCodigoDoacao();
+
         // Dados enviados ao back-end (valor em centavos)
         const dados = {
             codigo: codigo,
@@ -595,28 +639,42 @@ function iniciarDoacao() {
 
         console.log("Dados enviados:", dados);
 
+        // Evita envio duplicado enquanto a doação é processada
+        const botaoEnviar = form.querySelector('button[type="submit"]');
+        const textoOriginalBotao = botaoEnviar.textContent;
+        botaoEnviar.disabled = true;
+        botaoEnviar.textContent = "Enviando...";
+
         try {
-            const resposta = await fetch("/doacao", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(dados)
-            });
+            if (MODO_DEMONSTRACAO) {
+                await new Promise(function (resolver) { setTimeout(resolver, 700); });
+            } else {
+                const resposta = await fetch("/doacao", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(dados)
+                });
 
-            const resultado = await resposta.json();
+                const resultado = await resposta.json();
 
-            if (!resposta.ok) {
-                throw new Error(resultado.mensagem || "Erro ao processar a doação.");
+                if (!resposta.ok) {
+                    throw new Error(resultado.mensagem || "Erro ao processar a doação.");
+                }
             }
-
-            mostrarMensagem("Doação registrada com sucesso!", "#3f9a72");
 
             form.reset();
             resumoValor.textContent = "R$ 0,00";
             resumoPagamento.textContent = "-";
+            mostrarMensagem("");
+
+            abrirPopup(valorReais, codigo);
 
         } catch (erro) {
             console.error(erro);
             mostrarMensagem("Não foi possível registrar a doação.", "red");
+        } finally {
+            botaoEnviar.disabled = false;
+            botaoEnviar.textContent = textoOriginalBotao;
         }
     });
 }
